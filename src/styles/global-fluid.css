@@ -1,0 +1,25 @@
+:root {
+  /* type:fluid */
+  /* uses --base-rem */
+
+  --base-rem: var(--global-rem);
+  --base-type-scale: var(--scale-4-major-third);
+
+  --text-scale: var(--base-type-scale);
+  --text-l-1: calc(var(--base-rem) * var(--text-scale));
+  --text-l-2: calc(var(--text-l-1) * var(--text-scale));
+  --text-l-3: calc(var(--text-l-2) * var(--text-scale));
+  --text-l-4: calc(var(--text-l-3) * var(--text-scale));
+  --text-l-5: calc(var(--text-l-4) * var(--text-scale));
+  --text-l-6: calc(var(--text-l-5) * var(--text-scale));
+  --text-l-7: calc(var(--text-l-6) * var(--text-scale));
+  --text-base: var(--base-rem);
+  --text-s-1: calc(var(--base-rem) / var(--text-scale));
+  --text-s-2: calc(var(--text-s-1) / var(--text-scale));
+  --text-s-3: calc(var(--text-s-2) / var(--text-scale));
+}
+
+body {
+  font-size: var(--text-base);
+  line-height: inherit;
+}

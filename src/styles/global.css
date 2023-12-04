@@ -5,6 +5,155 @@
  */
 
 :root {
+  /* text scales */
+  --scale-1-minor-second: 1.067;
+  --scale-2-major-second: 1.125;
+  --scale-3-minor-third: 1.2;
+  --scale-4-major-third: 1.25;
+  --scale-5-perfect-fourth: 1.333;
+  --scale-6-augmented-fourth: 1.414;
+  --scale-7-perfect-fifth: 1.5;
+  --scale-8-minor-sixth: 1.6;
+  --scale-9-golden-ratio: 1.618;
+
+  --global-font-size: 1rem;
+  --global-fluid-ratio: 0.675;
+  --global-rem: calc(var(--global-font-size) + var(--global-fluid-ratio) * 1vw);
+  --global-text-scale: var(--scale-5-minor-third);
+
+  /* fonts */
+  --font-system: "Helvetica Neue", Helvetica, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: Inter Tight, var(--font-system);
+  --font-body: Inter, var(--font-system);
+
+  /* line-height */
+  --line-height--tighter: 90%;
+  --line-height--tight: 95%;
+  --line-height--normal: 100%;
+  --line-height--loose-1: 112.5%;
+  --line-height--loose-2: 120%;
+  --line-height--loose-3: 133.333%;
+  --line-height--loose-4: 150%;
+  --line-height--loose-5: 166%;
+
+  /* letter spacing */
+  --letter-spacing-tighter: -0.2rem;
+  --letter-spacing-tight: -0.15rem;
+  --letter-spacing-normal: 0;
+  --letter-spacing-relax: 0.15rem;
+  --letter-spacing-loose: 0.25rem;
+
+  /* spacing */
+  --page-margin: calc(2 * var(--global-rem));
+  --page-padding: var(--global-rem);
+  --grid-gutter: var(--global-rem);
+  --grid-gutter: 0;
+
+  /* colors */
+  --clr-black: #000;
+  --clr-white: #ffffff;
+  --clr-green: #029c54;
+  --clr-yellow: #fbfe67;
+  --clr-blue: #d9f9ff;
+  --clr-orange: #f55b1d;
+  --clr-pinky: #f9dae5;
+  --clr-yellow-warm: #ffc76e;
+
+  /* colors:brand */
+  --clr-brand: #005500;
+}
+
+body {
+  /* font-size: var(--base-rem); */
+  font-family: var(--font-body);
+  line-height: var(--line-height--loose-1);
+  font-size: var(--global-rem);
+}
+
+h1,
+.text-l-1 {
+  font-size: var(--text-l-7);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-tighter);
+}
+
+h2,
+.text-l-2 {
+  font-size: var(--text-l-6);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3,
+.text-l-3 {
+  font-size: var(--text-l-5);
+}
+
+h4,
+.text-l-4 {
+  font-size: var(--text-l-4);
+}
+
+h5,
+.text-l-5 {
+  font-size: var(--text-l-3);
+}
+
+h6,
+.text-l-6 {
+  font-size: var(--text-l-2);
+}
+
+.text-l-7 {
+  font-size: var(--text-l-1);
+}
+
+p,
+.text-base {
+  font-size: var(--text-base);
+}
+
+.text-s {
+  font-size: var(--text-s-1);
+}
+
+.text-xs {
+  font-size: var(--text-s-2);
+}
+
+.text-xxs {
+  font-size: var(--text-s-3);
+}
+
+.debug-global-rem {
+  font-size: var(--global-rem);
+}
+
+main section {
+  padding: var(--page-margin);
+}
+
+.about {
+  background: var(--clr-blue);
+  padding: 8em 4em;
+}
+
+footer {
+  background: brown;
+}
+
+/* Debug Stuff */
+
+* {
+  outline: 1px solid rgba(255, 0, 0, 0.5);
+}
+
+* > div > div {
+  background: var(--color-debug);
+}
+/* 
+:root {
 	--accent: #2337ff;
 	--accent-dark: #000d8a;
 	--black: 15, 18, 25;
@@ -133,22 +282,22 @@ hr {
 	main {
 		padding: 1em;
 	}
-}
+} */
 
 .sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
 }
