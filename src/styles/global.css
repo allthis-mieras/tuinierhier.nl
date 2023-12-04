@@ -50,8 +50,9 @@
   --grid-gutter: var(--global-rem);
   --grid-gutter: 0;
 
-  /* colors */
-  --clr-black: #000;
+  --space-01: 
+
+  /* colors */ --clr-black: #000;
   --clr-white: #ffffff;
   --clr-green: #029c54;
   --clr-yellow: #fbfe67;
@@ -136,7 +137,6 @@ main section {
 
 .about {
   background: var(--clr-blue);
-  padding: 8em 4em;
 }
 
 footer {

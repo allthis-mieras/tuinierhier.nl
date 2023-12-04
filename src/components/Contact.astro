@@ -19,9 +19,12 @@
   <style>
     .contact-wrap {
       display: grid;
-      grid-template-columns: minmax(min-content, 3fr) minmax(0, 2fr);
     }
-
+    @media only screen and (min-width: 768px) {
+      .contact-wrap {
+        grid-template-columns: minmax(min-content, 3fr) minmax(0, 2fr);
+      }
+    }
     /* @media only screen and (min-width: ) {
     
   }
