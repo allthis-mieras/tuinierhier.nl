@@ -3,7 +3,7 @@
   /* uses --base-rem */
 
   --base-rem: var(--global-rem);
-  --base-type-scale: var(--scale-4-major-third);
+  --base-type-scale: var(--scale-3-minor-third);
 
   --text-scale: var(--base-type-scale);
   --text-l-1: calc(var(--base-rem) * var(--text-scale));

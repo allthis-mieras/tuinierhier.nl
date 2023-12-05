@@ -284,6 +284,14 @@ hr {
 	}
 } */
 
+@media only screen and (max-width: 767px) {
+  :root {
+    --global-font-size: 0.975rem;
+    --global-text-scale: var(--scale-2-major-second);
+    --page-margin: var(--global-rem);
+  }
+}
+
 .sr-only {
   border: 0;
   padding: 0;
