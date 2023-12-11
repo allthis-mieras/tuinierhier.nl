@@ -4,27 +4,69 @@ import { NAME, NAME_REAL } from "../consts";
 
 <main>
   <div class="cover-wrap">
-    <h2>{NAME_REAL}</h2>
-    <h1>{NAME}</h1>
-    <ul class="tags">
-      <li>Tuinfluencer</li>
-      <li>Plantlover</li>
-      <li>Kweekbeest</li>
-      <li>Tuintijger</li>
-      <li>Gardenista</li>
-    </ul>
-    <video
-      id=""
-      autoplay="1"
-      loop="1"
-      style="background-image:url(./assets/bloemenhommel-poster.jpg)"
-      muted="1"
-      playsinline="1"
-      data-object-fit="cover"
-      width="100%"
-      ><source src="./assets/bloemenhommel-transcode.mp4" /><source
-        src='./assets/bloemenhommel-transcode.webm"'
-      /></video
-    >
+    <div class="cover-inner">
+      <h2>{NAME_REAL}</h2>
+      <h1>{NAME}</h1>
+      <ul class="tags">
+        <li>Tuinfluencer</li>
+        <li>Plantlover</li>
+        <li>Kweekbeest</li>
+        <li>Tuintijger</li>
+        <li>Gardenista</li>
+      </ul>
+    </div>
   </div>
+  <video
+    id=""
+    autoplay="1"
+    loop="1"
+    style="background-image:url(./assets/bloemenhommel-poster.jpg)"
+    muted="1"
+    playsinline="1"
+    data-object-fit="cover"
+    width="100%"
+    ><source src="./assets/bloemenhommel-transcode.mp4" /><source
+      src='./assets/bloemenhommel-transcode.webm"'
+    /></video
+  >
 </main>
+
+<style>
+  main {
+    min-height: 80vh;
+    position: relative;
+  }
+  .cover-wrap {
+    position: absolute;
+    z-index: 10;
+    display: grid;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+
+  video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  ul {
+    display: flex;
+    gap: var(--space-2xs-xs);
+    align-items: center;
+    justify-content: center;
+  }
+</style>

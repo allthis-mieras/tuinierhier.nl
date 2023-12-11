@@ -5,3 +5,6 @@ export const SITE_TITLE = 'Tuinierhier • Eefje Peddemors';
 export const SITE_DESCRIPTION = 'Tuinfluencer, plantlover, kweekbeest, tuintijger, gardenista.';
 export const NAME_REAL = 'Eefje Peddemors';
 export const NAME = 'Tuinierhier';
+export const TYPEKIT = 'https://use.typekit.net/cjb2kfe.css';
+
+

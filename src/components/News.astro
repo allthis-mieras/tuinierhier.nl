@@ -3,18 +3,18 @@
 ---
 
 <section>
+  <h2 class="section-title">Nieuws</h2>
   <div class="news-wrap">
-    <h2>Nieuws</h2>
     <div class="news-list">
       <div class="news-item">
         <img
-          src="https://via.placeholder.com/600x600/333?text=thumb
+          src="https://source.unsplash.com/random/?greenery
           "
           alt="plaatje"
         />
         <p>tag</p>
-        <h3>Title</h3>
-        <p class="lead">
+        <h3 class="title">Title</h3>
+        <p class="intro">
           Als tuinfluencer probeer ik de welwillende burger te inspireren en te
           helpen om te vergroenen.
         </p>
@@ -28,13 +28,13 @@
       </div>
       <div class="news-item">
         <img
-          src="https://via.placeholder.com/600x600/333?text=thumb
+          src="https://source.unsplash.com/random/?garden,greenery
           "
           alt="plaatje"
         />
         <p>tag</p>
-        <h3>Title</h3>
-        <p class="lead">
+        <h3 class="title">Title</h3>
+        <p class="intro">
           Als tuinfluencer probeer ik de welwillende burger te inspireren en te
           helpen om te vergroenen.
         </p>
@@ -48,13 +48,13 @@
       </div>
       <div class="news-item">
         <img
-          src="https://via.placeholder.com/600x600/333?text=thumb
+          src="https://source.unsplash.com/random/?plants
           "
           alt="plaatje"
         />
         <p>tag</p>
-        <h3>Title</h3>
-        <p class="lead">
+        <h3 class="title">Title</h3>
+        <p class="intro">
           Als tuinfluencer probeer ik de welwillende burger te inspireren en te
           helpen om te vergroenen.
         </p>
@@ -71,6 +71,10 @@
 </section>
 
 <style>
+  section {
+    background: var(--clr-yellow);
+  }
+
   .news-list {
     display: grid;
   }
@@ -78,6 +82,7 @@
   @media only screen and (min-width: 768px) {
     .news-list {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--grid-gutter);
     }
   }
 </style>

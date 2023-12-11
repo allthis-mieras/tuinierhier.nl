@@ -4,13 +4,14 @@ const today = new Date();
 ---
 
 <footer>
-  <p>
+  <p class="fs-base lh-tight">
     Tuinierhier is Eefje Peddemors; tuinfluencer, plantlover, kweekbeest,
     tuintijger en gardenista sur plus. Maakt grijze ongezellige situaties groen
     en gezellig.
   </p>
-  <div class="social">
-    <ul>
+
+  <div class="bottom">
+    <ul class="social-links">
       <li>
         <a href="https://instagram.com/tuinierhier" class="instagram"
           >instagram.com/tuinierhier</a
@@ -27,27 +28,26 @@ const today = new Date();
         >
       </li>
     </ul>
-  </div>
-  <div class="credits">
-    <div class="copyright">&copy; {today.getFullYear()} {SITE_TITLE}</div>
-    <div class="allthis">website by: allthis.digital</div>
+    <div class="credits">
+      <div class="copyright">&copy; {today.getFullYear()} {SITE_TITLE}</div>
+      <div class="allthis">website by: allthis.digital</div>
+    </div>
   </div>
 </footer>
 <style>
   footer {
     padding: var(--page-padding);
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 0.75vw + 0.6rem, 1.5rem);
+    /* font-size: 0.875rem; */
   }
-
-  p {
-    font-size: 1rem;
+  .bottom {
+    display: grid;
+    gap: 0.5rem;
   }
 
   .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
+    display: grid;
+    gap: 0.5rem;
   }
   .social-links a {
     text-decoration: none;
@@ -55,5 +55,8 @@ const today = new Date();
   }
   .social-links a:hover {
     color: rgb(var(--gray-dark));
+  }
+  .credits {
+    margin-top: var(--space-s-l);
   }
 </style>

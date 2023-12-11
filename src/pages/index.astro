@@ -19,12 +19,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       <main class="content">
         <Hero />
         <section class="about">
-          <p class="lead">
+          <p class="fs-2xl fw-700 lh-loose-1">
             Ik ben Eefje en ik houd niet zo van grijs en wel van groen. En van
             beestjes. En bloemen. Omdat het fijner is om naar te kijken aan te
             ruiken en aan te voelen. En ik vind dat er wel wat meer bij kan.
           </p>
-          <p>
+          <p class="fw-700 lh-loose-1">
             Ik ken heel wat mensen die best graag meer zouden willen met groen.
             Of die nog wel een stap verder zouden willen gaan en ook nog wel wat
             regenwater zouden willen opvangen, of willen helpen de bijensterfte
@@ -52,9 +52,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         row-gap: 0;
       }
 
-      @media (min-width: 720px) {
+      .about {
+        background: var(--clr-blue);
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--grid-gutter);
+      }
+
+      @media (min-width: 1024px) {
         .page-wrap {
-          grid-template-columns: minmax(25%, auto) minmax(75%, 3fr);
+          grid-template-columns: minmax(20%, auto) minmax(75%, 3fr);
         }
 
         footer {
