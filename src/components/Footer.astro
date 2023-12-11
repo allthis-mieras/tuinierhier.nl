@@ -1,10 +1,10 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { NAME } from "../consts";
 const today = new Date();
 ---
 
 <footer>
-  <p class="fs-base lh-tight">
+  <p class="description">
     Tuinierhier is Eefje Peddemors; tuinfluencer, plantlover, kweekbeest,
     tuintijger en gardenista sur plus. Maakt grijze ongezellige situaties groen
     en gezellig.
@@ -29,16 +29,22 @@ const today = new Date();
       </li>
     </ul>
     <div class="credits">
-      <div class="copyright">&copy; {today.getFullYear()} {SITE_TITLE}</div>
+      <div class="copyright">&copy; {today.getFullYear()} {NAME}</div>
       <div class="allthis">website by: allthis.digital</div>
     </div>
   </div>
 </footer>
+
 <style>
   footer {
-    padding: var(--page-padding);
+    padding: var(--space-s-2xl);
     font-size: clamp(0.75rem, 0.75vw + 0.6rem, 1.5rem);
-    /* font-size: 0.875rem; */
+  }
+
+  .description {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-700);
+    line-height: var(--lh-loose-2);
   }
   .bottom {
     display: grid;
@@ -48,6 +54,8 @@ const today = new Date();
   .social-links {
     display: grid;
     gap: 0.5rem;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-700);
   }
   .social-links a {
     text-decoration: none;
@@ -57,6 +65,15 @@ const today = new Date();
     color: rgb(var(--gray-dark));
   }
   .credits {
-    margin-top: var(--space-s-l);
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    margin-top: var(--space-s-m);
+    font-size: var(--fs-2xs);
+    font-weight: var(--fw-700);
+  }
+  @media only screen and (min-width: 1024px) {
+    footer {
+      padding: var(--space-2xs-xs);
+    }
   }
 </style>

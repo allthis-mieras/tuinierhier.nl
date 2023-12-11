@@ -12,8 +12,10 @@
   /* fonts */
   --font-system: "Helvetica Neue", Helvetica, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: Inter Tight, var(--font-system);
-  --font-body: Inter, var(--font-system);
+  --font-heading: "new-spirit-condensed", var(--font-system);
+  --font-heading-2: "new-spirit", var(--font-system);
+  --font-body: "Manrope", var(--font-system);
+  --font-extra: anchor-web, var(--font-system);
 
   --fs-2xs: clamp(0.7rem, 0.05vw + 0.69rem, 0.77rem);
   --fs-1xs: clamp(0.79rem, 0.13vw + 0.76rem, 0.96rem);
@@ -84,15 +86,18 @@
   /* spacing */
   --page-margin: calc(2 * var(--global-rem));
   --page-padding: var(--global-rem);
-  --grid-gutter: var(--global-rem);
+  --grid-gutter: var(--space-s-l);
   /* --grid-gutter: 0; */
+
+  --br-full: 50vw;
 
   /* colors */
   --clr-black: #000;
   --clr-white: #ffffff;
   --clr-green: #029c54;
-  --clr-yellow: #fbfe67;
+  --clr-yellow: #feffc9;
   --clr-blue: #d9f9ff;
+  --clr-navy: #035669;
   --clr-orange: #f55b1d;
   --clr-pinky: #f9dae5;
   --clr-yellow-warm: #ffc76e;
@@ -238,10 +243,6 @@ p,
   line-height: var(--lh-loose-5);
 }
 
-.intro {
-  font-weight: 600;
-}
-
 main section {
   padding: var(--space-s-2xl);
 }
@@ -250,6 +251,25 @@ main section {
   font-size: var(--fs-sm);
   font-weight: var(--fw-600);
   margin-bottom: var(--space-xs-s);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-extra);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  font-weight: var(--fw-600);
+  letter-spacing: var(--ls-normal);
+  padding: var(--space-3xs) var(--space-2xs-xs);
+  border-radius: var(--br-full);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.tag.hero {
+  background: var(--clr-blue);
+  color: var(--clr-navy);
+  border-radius: var(--br-full);
+  border: none;
 }
 
 footer {
@@ -264,13 +284,13 @@ footer {
 
 /* Debug Stuff */
 
-* {
+/* * {
   outline: 1px solid rgba(255, 0, 0, 0.5);
 }
 
 * > div > div {
   background: var(--color-debug);
-}
+} */
 /* 
 :root {
 	--accent: #2337ff;

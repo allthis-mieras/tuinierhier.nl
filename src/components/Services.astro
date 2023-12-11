@@ -69,13 +69,14 @@
 
   .section-items {
     display: grid;
-    gap: var(--grid-gutter);
+    gap: var(--space-s-2xl);
   }
 
   .services-item {
     display: grid;
-    gap: var(--grid-gutter);
     grid-template-rows: min-content;
+    row-gap: var(--space-3xs);
+    column-gap: var(--grid-gutter);
   }
 
   .img-wrap {
@@ -90,23 +91,28 @@
   }
 
   .title {
-    font-size: var(--fs-2xl);
+    font-family: var(--font-heading);
+    font-size: var(--fs-4xl);
+    letter-spacing: var(--ls-tighter);
   }
 
   p.intro {
     font-size: var(--fs-base);
     font-weight: var(--fw-600);
+    line-height: var(--lh-loose-3);
   }
 
-  p {
-    font-size: var(--fs-sm);
+  p + p {
+    font-size: var(--fs-1xs);
+    line-height: var(--lh-loose-4);
   }
 
   @media only screen and (min-width: 768px) {
     .services-item {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: var(--grid-gutter);
+      row-gap: var(--space-xs);
+      column-gap: var(--grid-gutter);
     }
 
     .title {

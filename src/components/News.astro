@@ -11,19 +11,17 @@
           src="https://source.unsplash.com/random/?greenery
           "
           alt="plaatje"
+          class="thumb-news"
         />
-        <p>tag</p>
-        <h3 class="title">Title</h3>
+        <p class="tag">2023</p>
+        <h3 class="title">7/10/2023 'Help, mijn tuin heeft tegels!'</h3>
         <p class="intro">
-          Als tuinfluencer probeer ik de welwillende burger te inspireren en te
-          helpen om te vergroenen.
+          In mijn nabije omgeving merkte ik een nieuw fenomeen op:
+          ‘Tegelschaamte’.
         </p>
         <p>
-          Vergroenen is namelijk helemaal niet zo ingewikkeld; je haalt eens een
-          tegeltje weg, je plant eens een zaadje. Er kan eigenlijk niet zo veel
-          mis gaan. Het is een kwestie van doen. En als je het toch nog wat
-          spannend vindt om het alleen te doen, dan help ik je graag op weg met
-          tips en inspiratie. Deze vind je op instagram.com/tuinierhier.
+          Bij het bekijken van het account @onderhoudsarmoe steeg het schaamrood
+          sommige mensen (ik noem geen namen) naar de kaken.
         </p>
       </div>
       <div class="news-item">
@@ -31,19 +29,19 @@
           src="https://source.unsplash.com/random/?garden,greenery
           "
           alt="plaatje"
+          class="thumb-news"
         />
-        <p>tag</p>
-        <h3 class="title">Title</h3>
+        <p class="tag">2023</p>
+        <h3 class="title">Nu al een museumstuk</h3>
         <p class="intro">
-          Als tuinfluencer probeer ik de welwillende burger te inspireren en te
-          helpen om te vergroenen.
+          In het Natuurhistorisch Museum kun je me tegenwoordig zomaar
+          tegenkomen
         </p>
         <p>
-          Vergroenen is namelijk helemaal niet zo ingewikkeld; je haalt eens een
-          tegeltje weg, je plant eens een zaadje. Er kan eigenlijk niet zo veel
-          mis gaan. Het is een kwestie van doen. En als je het toch nog wat
-          spannend vindt om het alleen te doen, dan help ik je graag op weg met
-          tips en inspiratie. Deze vind je op instagram.com/tuinierhier.
+          In een video in de tentoonstelling ‘Nationaal Park Rotterdam’ zie je
+          mij rommelen en kletsen in mijn eigen stadstuintje. Op die manier hoop
+          ik anderen te inspireren om vooral ook lekker te gaan rommelen in hun
+          tuintje.
         </p>
       </div>
       <div class="news-item">
@@ -51,19 +49,20 @@
           src="https://source.unsplash.com/random/?plants
           "
           alt="plaatje"
+          class="thumb-news"
         />
-        <p>tag</p>
-        <h3 class="title">Title</h3>
+        <p class="tag">2023</p>
+        <h3 class="title">Socials van het Rotterdams WeerWoord</h3>
         <p class="intro">
-          Als tuinfluencer probeer ik de welwillende burger te inspireren en te
-          helpen om te vergroenen.
+          Via de sociale kanalen van het Rotterdams WeerWoord mag ik thema’s als
+          klimaatadaptatie en biodiversiteit wat dichter bij de Rotterdammer
+          brengen.
         </p>
         <p>
-          Vergroenen is namelijk helemaal niet zo ingewikkeld; je haalt eens een
-          tegeltje weg, je plant eens een zaadje. Er kan eigenlijk niet zo veel
-          mis gaan. Het is een kwestie van doen. En als je het toch nog wat
-          spannend vindt om het alleen te doen, dan help ik je graag op weg met
-          tips en inspiratie. Deze vind je op instagram.com/tuinierhier.
+          Met veel plezier fiets ik langs actieve Rotterdammers die tegels
+          wippen, stadsecologen die bodemdieren zoeken, waterpleinen die het
+          riool ontlasten en groene parels in de stad die het bezoeken waard
+          zijn.
         </p>
       </div>
     </div>
@@ -77,6 +76,28 @@
 
   .news-list {
     display: grid;
+  }
+
+  .thumb-news {
+    margin-bottom: var(--space-xs-s);
+  }
+
+  .title {
+    font-size: var(--fs-1xl);
+    font-weight: var(--fw-700);
+    margin: var(--space-3xs-2xs) 0;
+  }
+
+  .intro {
+    font-weight: var(--fw-600);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-loose-3);
+  }
+
+  p + p {
+    margin-top: var(--space-3xs-2xs);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-loose-3);
   }
 
   @media only screen and (min-width: 768px) {

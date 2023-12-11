@@ -5,14 +5,14 @@ import { NAME, NAME_REAL } from "../consts";
 <main>
   <div class="cover-wrap">
     <div class="cover-inner">
-      <h2>{NAME_REAL}</h2>
-      <h1>{NAME}</h1>
+      <h2 class="subtitle">{NAME_REAL}</h2>
+      <h1 class="title">{NAME}</h1>
       <ul class="tags">
-        <li>Tuinfluencer</li>
-        <li>Plantlover</li>
-        <li>Kweekbeest</li>
-        <li>Tuintijger</li>
-        <li>Gardenista</li>
+        <li class="tag hero">Tuinfluencer</li>
+        <li class="tag hero">Plantlover</li>
+        <li class="tag hero">Kweekbeest</li>
+        <li class="tag hero">Tuintijger</li>
+        <li class="tag hero">Gardenista</li>
       </ul>
     </div>
   </div>
@@ -33,7 +33,7 @@ import { NAME, NAME_REAL } from "../consts";
 
 <style>
   main {
-    min-height: 80vh;
+    min-height: 90vh;
     position: relative;
   }
   .cover-wrap {
@@ -56,6 +56,17 @@ import { NAME, NAME_REAL } from "../consts";
     color: white;
   }
 
+  .subtitle {
+    font-family: var(--font-heading-2);
+    font-size: var(--fs-3xl);
+  }
+
+  .title {
+    font-family: var(--font-heading);
+    font-size: calc(2 * var(--fs-6xl));
+    color: var(--clr-yellow);
+  }
+
   video {
     position: absolute;
     height: 100%;
@@ -65,7 +76,7 @@ import { NAME, NAME_REAL } from "../consts";
 
   ul {
     display: flex;
-    gap: var(--space-2xs-xs);
+    gap: var(--space-3xs-2xs);
     align-items: center;
     justify-content: center;
   }
