@@ -9,33 +9,38 @@ import { YouTube } from "@astro-community/astro-embed-youtube";
     class="embed-yt"
   /> -->
   <div class="contact-wrap">
-    <!-- <img src="https://via.placeholder.com/1280x720/333?text=16:9" alt="image" /> -->
+    <img src="https://via.placeholder.com/1280x720/333?text=16:9" alt="image" />
     <div class="contact-content">
-      <h2 class="text-l-6">Samenwerken?</h2>
-      <p>
-        Tellus, vel dictum a egestas eleifend augue amet. In ullamcorper sem
-        velit blandit felis, elementum neque, proin. Dictum eget augue porttitor
-        id dictumst ullamcorper.
-      </p>
+      <h2 class="title">Contact?</h2>
+      <p>Heb je een vraag of wil je samenwerken? Ik hoor het graag!</p>
       <a href="#" class="button">Mail</a>
     </div>
   </div>
+</section>
 
-  <style>
+<style>
+  section {
+    background-color: var(--clr-green);
+  }
+  .contact-wrap {
+    display: grid;
+    gap: var(--grid-gutter);
+  }
+  .embed-yt {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: var(--fs-1xl);
+    font-family: var(--font-heading);
+  }
+  @media only screen and (min-width: 768px) {
     .contact-wrap {
-      display: grid;
+      grid-template-columns: minmax(min-content, 3fr) minmax(0, 2fr);
     }
-    .embed-yt {
-      max-width: 100%;
-    }
-    @media only screen and (min-width: 768px) {
-      .contact-wrap {
-        grid-template-columns: minmax(min-content, 3fr) minmax(0, 2fr);
-      }
-    }
-    /* @media only screen and (min-width: ) {
+  }
+  /* @media only screen and (min-width: ) {
     
   }
   */
-  </style>
-</section>
+</style>

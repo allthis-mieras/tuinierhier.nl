@@ -33,7 +33,7 @@ import { NAME, NAME_REAL } from "../consts";
 
 <style>
   main {
-    min-height: 90vh;
+    min-height: 50vh;
     position: relative;
   }
   .cover-wrap {
@@ -79,5 +79,10 @@ import { NAME, NAME_REAL } from "../consts";
     gap: var(--space-3xs-2xs);
     align-items: center;
     justify-content: center;
+  }
+  @media only screen and (min-width: 1024px) {
+    main {
+      min-height: 90vh;
+    }
   }
 </style>

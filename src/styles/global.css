@@ -253,6 +253,18 @@ main section {
   margin-bottom: var(--space-xs-s);
 }
 
+.button {
+  display: inline-block;
+  font-family: var(--font-extra);
+  font-size: var(--fs-sm);
+  text-transform: uppercase;
+  font-weight: var(--fw-600);
+  letter-spacing: var(--ls-normal);
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--br-full);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
 .tag {
   display: inline-block;
   font-family: var(--font-extra);
