@@ -1,5 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+
+// import { Image } from "astro:assets";
+
 import FormattedDate from "../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
@@ -17,7 +20,7 @@ const posts = (await getCollection("blog")).sort(
               width={720}
               src={post.data.heroImage}
               class="thumb-news"
-              alt=""
+              alt={post.data.title}
             />
             <p class="tag">
               <FormattedDate date={post.data.pubDate} />
@@ -103,6 +106,11 @@ const posts = (await getCollection("blog")).sort(
   .news-list {
     display: grid;
     gap: var(--grid-gutter);
+  }
+
+  .news-item a {
+    text-decoration: none;
+    color: inherit;
   }
 
   .thumb-news {

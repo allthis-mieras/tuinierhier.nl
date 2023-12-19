@@ -25,6 +25,7 @@ import { NAME, NAME_REAL } from "../consts";
     playsinline="1"
     data-object-fit="cover"
     width="100%"
+    poster="./assets/bloemenhommel-poster.jpg"
     ><source src="./assets/bloemenhommel-transcode.mp4" /><source
       src='./assets/bloemenhommel-transcode.webm"'
     /></video
@@ -63,7 +64,7 @@ import { NAME, NAME_REAL } from "../consts";
 
   .title {
     font-family: var(--font-heading);
-    font-size: calc(2 * var(--fs-6xl));
+    font-size: calc(1.66 * var(--fs-6xl));
     color: var(--clr-yellow);
   }
 
@@ -76,6 +77,7 @@ import { NAME, NAME_REAL } from "../consts";
 
   ul {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-3xs-2xs);
     align-items: center;
     justify-content: center;
@@ -83,6 +85,11 @@ import { NAME, NAME_REAL } from "../consts";
   @media only screen and (min-width: 1024px) {
     main {
       min-height: 90vh;
+    }
+  }
+  @media only screen and (min-width: 512px) {
+    .title {
+      font-size: calc(2.25 * var(--fs-6xl));
     }
   }
 </style>

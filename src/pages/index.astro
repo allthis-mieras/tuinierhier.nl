@@ -1,90 +1,41 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-// import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+// component imports
+import MainLayout from "../layouts/MainLayout.astro";
+
 import Hero from "../components/Hero.astro";
 import News from "../components/News.astro";
 import Services from "../components/Services.astro";
 import Contact from "../components/Contact.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <div class="page-wrap">
-      <main class="content">
-        <Hero />
-        <section class="about">
-          <p class="fs-2xl fw-700 lh-loose-1">
-            Ik ben Eefje en ik houd niet zo van grijs en wel van groen. En van
-            beestjes. En bloemen. Omdat het fijner is om naar te kijken aan te
-            ruiken en aan te voelen. En ik vind dat er wel wat meer bij kan.
-          </p>
-          <div class="info">
-            <p class="fw-700 lh-loose-1">
-              Ik ken heel wat mensen die best graag meer zouden willen met
-              groen. Of die nog wel een stap verder zouden willen gaan en ook
-              nog wel wat regenwater zouden willen opvangen, of willen helpen de
-              bijensterfte tegen te gaan, meer vlindersoorten in stand te
-              houden, vogels en egels fijne plekken te bieden.
-            </p>
-            <p class="fw-500 fs-1xs lh-loose-3">
-              Maar hoe dan? En gaat daar niet heel veel tijd en onderhoud in
-              zitten? Moet je daar dan verstand van hebben? Of groene vingers?
-              Ik zeg: NEE. Volg mij gewoon. Ik doe uiteindelijk ook maar wat.
-              Zowel online als 'In Real Life'. Doe vooral gezellig met me mee.
-              Je krijgt er geen spijt van. Beloofd.
-            </p>
-          </div>
-        </section>
-        <Services />
-        <News />
-        <Contact />
-      </main>
-      <Footer />
+<MainLayout title="My Blog">
+  <Hero />
+  <section class="about">
+    <p class="fs-2xl fw-700 lh-loose-1">
+      Ik ben Eefje en ik houd niet zo van grijs en wel van groen. En van
+      beestjes. En bloemen. Omdat het fijner is om naar te kijken aan te ruiken
+      en aan te voelen. En ik vind dat er wel wat meer bij kan.
+    </p>
+    <div class="info">
+      <p class="fw-700 lh-loose-1">
+        Ik ken heel wat mensen die best graag meer zouden willen met groen. Of
+        die nog wel een stap verder zouden willen gaan en ook nog wel wat
+        regenwater zouden willen opvangen, of willen helpen de bijensterfte
+        tegen te gaan, meer vlindersoorten in stand te houden, vogels en egels
+        fijne plekken te bieden.
+      </p>
+      <p class="fw-500 fs-1xs lh-loose-3">
+        Maar hoe dan? En gaat daar niet heel veel tijd en onderhoud in zitten?
+        Moet je daar dan verstand van hebben? Of groene vingers? Ik zeg: NEE.
+        Volg mij gewoon. Ik doe uiteindelijk ook maar wat. Zowel online als 'In
+        Real Life'. Doe vooral gezellig met me mee. Je krijgt er geen spijt van.
+        Beloofd.
+      </p>
     </div>
-    <style>
-      .page-wrap {
-        display: grid;
-      }
+  </section>
+  <Services />
+  <News />
+  <Contact />
+</MainLayout>
 
-      .content {
-        display: grid;
-        row-gap: 0;
-      }
-
-      .about {
-        background: var(--clr-blue);
-        display: grid;
-
-        gap: var(--grid-gutter);
-      }
-
-      .info {
-        display: grid;
-        gap: var(--space-m);
-      }
-
-      @media (min-width: 1024px) {
-        .page-wrap {
-          grid-template-columns: minmax(20%, auto) minmax(75%, 3fr);
-        }
-
-        .about {
-          grid-template-columns: 2fr 1fr;
-        }
-
-        footer {
-          order: 1;
-        }
-        main {
-          order: 2;
-        }
-      }
-    </style>
-  </body>
-</html>
+<style></style>

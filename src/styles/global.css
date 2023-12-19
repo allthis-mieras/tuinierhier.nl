@@ -82,11 +82,12 @@
   /* Custom pairs */
   --space-s-l: clamp(1rem, 0.6rem + 2vw, 3rem);
   --space-s-2xl: clamp(1rem, 0rem + 5vw, 6rem);
+  --space-m-2xl: clamp(1.5rem, 0.6rem + 4.5vw, 6rem);
 
   /* spacing */
   --page-margin: calc(2 * var(--global-rem));
   --page-padding: var(--global-rem);
-  --grid-gutter: var(--space-s-l);
+  --grid-gutter: var(--space-s-m);
   /* --grid-gutter: 0; */
 
   --br-full: 50vw;
@@ -244,7 +245,7 @@ p,
 }
 
 main section {
-  padding: var(--space-s-2xl);
+  padding: var(--space-m-2xl);
 }
 
 .section-title {
@@ -282,6 +283,44 @@ main section {
   color: var(--clr-navy);
   border-radius: var(--br-full);
   border: none;
+}
+
+.page-wrap {
+  display: grid;
+}
+
+.content {
+  display: grid;
+  row-gap: 0;
+}
+
+.about {
+  background: var(--clr-blue);
+  display: grid;
+
+  gap: var(--grid-gutter);
+}
+
+.info {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 1024px) {
+  .page-wrap {
+    grid-template-columns: minmax(20%, auto) minmax(75%, 3fr);
+  }
+
+  .about {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  footer {
+    order: 1;
+  }
+  main {
+    order: 2;
+  }
 }
 
 footer {
