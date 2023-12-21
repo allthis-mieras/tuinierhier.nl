@@ -306,6 +306,10 @@ main section {
   gap: var(--space-m);
 }
 
+p {
+  margin-bottom: 1.5rem;
+}
+
 @media (min-width: 1024px) {
   .page-wrap {
     grid-template-columns: minmax(20%, auto) minmax(75%, 3fr);
