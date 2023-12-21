@@ -14,10 +14,10 @@ const posts = (await getCollection("blog")).sort(
         <li class="news-item">
           <a href={`/blog/${post.slug}/`}>
             <img
-              width={720}
-              src={post.data.heroImage}
-              class="thumb-news"
+              src={post.data.heroImage.src}
               alt={post.data.title}
+              width={720}
+              class="thumb-news"
             />
             <p class="tag">
               <FormattedDate date={post.data.pubDate} />
