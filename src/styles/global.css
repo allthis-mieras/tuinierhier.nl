@@ -306,8 +306,9 @@ main section {
   gap: var(--space-m);
 }
 
-p {
+article p {
   margin-bottom: 1.5rem;
+  line-height: var(--lh-loose-3);
 }
 
 @media (min-width: 1024px) {
