@@ -1,13 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-
-// import { Image } from "astro:assets";
-
 import FormattedDate from "../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
-  // Volgorde op datum
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a: any, b: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
