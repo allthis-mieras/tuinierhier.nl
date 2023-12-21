@@ -25,12 +25,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <h1>{title}</h1>
       </div>
       <div class="hero-image">
-        <!-- <Image src={heroImage} alt="A very cool penguin!" /> -->
-        {
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          width={1600}
+          height={900}
+        />
+        <!-- {
           heroImage && (
-            <img width={1020} height={510} src={heroImage.src} alt="" />
+            <img
+              src={heroImage.src}
+              alt={heroImage.alt}
+              width={1600}
+              height={900}
+            />
           )
-        }
+        } -->
       </div>
 
       <slot />

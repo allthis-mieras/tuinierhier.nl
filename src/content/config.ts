@@ -13,6 +13,7 @@ const blog = defineCollection({
     // Advanced: Validate that the string is also an email
     updatedDate: z.coerce.date().optional(),
     // heroImage: z.string().optional(),
+
     heroImage: z.object({
       src: z.string(),
       alt: z.string(),

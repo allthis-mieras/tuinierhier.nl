@@ -3,7 +3,7 @@ title: "Help, mijn tuin heeft tegels!"
 description: "In mijn nabije omgeving merkte ik een nieuw fenomeen op: ‘Tegelschaamte’."
 pubDate: "Jul 08 2022"
 heroImage:
-  src: "https://source.unsplash.com/random/?greenery"
+  src: "/blog-placeholder-1.jpg"
   alt: "Content Image Alt Text"
 ---
 
