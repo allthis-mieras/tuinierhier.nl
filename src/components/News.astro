@@ -6,6 +6,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
+  // Volgorde op datum
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -32,7 +33,7 @@ const posts = (await getCollection("blog")).sort(
       ))
     }
   </ul>
-  <h2 class="section-title">Nieuws</h2>
+  <!-- <h2 class="section-title">Nieuws</h2>
   <div class="news-wrap">
     <div class="news-list">
       <div class="news-item">
@@ -95,7 +96,7 @@ const posts = (await getCollection("blog")).sort(
         </p>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <style>

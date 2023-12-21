@@ -1,54 +1,48 @@
 ---
 // component import
 import PostHeader from "../components/PostHeader.astro";
-// import CategoryCloud from "../components/CategoryCloud.astro";
 import MainLayout from "./MainLayout.astro";
-// import RelatedPosts from "../components/RelatedPosts.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
-// util imports
-import { formatBlogPosts } from "../js/utils";
+type Props = CollectionEntry<"blog">["data"];
 
-const { frontmatter } = Astro.props;
-const { title, description, date, category, author, image } = frontmatter;
-
-const allPosts = await Astro.glob("../content/blog/*.md");
-// const formattedPosts = formatBlogPosts(allPosts, {
-//   sortByDate: false,
-// });
-// const relatedPosts = formattedPosts
-//   .filter(
-//     (post) =>
-//       post.frontmatter.category.toLowerCase() === category.toLowerCase() &&
-//       post.frontmatter.title !== title
-//   )
-//   .slice(0, 3);
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<MainLayout
-  {title}
-  {description}
-  image={frontmatter.image}
-  {frontmatter}
-  robots={frontmatter.robots}
->
-  <PostHeader {title} {description} {date} {category} {image} {author} />
-  <div class="post-content">
-    <div class="content">
+<MainLayout {title} {description} image={heroImage}>
+  <article>
+    <div class="title">
+      <div class="date">
+        <FormattedDate date={pubDate} />
+        {
+          updatedDate && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
+        <h1>{title}</h1>
+      </div>
+      <div class="hero-image">
+        <!-- {heroImage && <img width={1020} src={heroImage} alt="" />} -->
+        <Image
+          src={heroImage}
+          alt={description}
+          width={1600}
+          height={900}
+          densities={[1.5, 2]}
+        />
+      </div>
+
       <slot />
     </div>
-    <div class="sidebar">
-      <aside class="container" aria-label="Blog categories">
-        <h2 class="h3">Blog Categories</h2>
-        <!-- <CategoryCloud /> -->
-      </aside>
-      <!-- {
-        relatedPosts.length > 0 && (
-          <aside class="container" aria-label="Related posts">
-            <h2 class="h3">Related Posts</h2>
-            <RelatedPosts {relatedPosts} />
-          </aside>
-        )
-      } -->
-    </div>
-  </div>
+  </article>
 </MainLayout>
+
+<style>
+  article {
+    padding: var(--space-s-2xl);
+  }
+</style>
