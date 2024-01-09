@@ -25,7 +25,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
           )
         }
 
-        <h1 class="fs-4xl fw-700 lh-loose-1">{title}</h1>
+        <h1 class="fs-5xl fw-700 lh-loose-1 title">{title}</h1>
       </div>
       <div class="hero-image">
         <Image
@@ -47,23 +47,69 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       </div>
 
       <slot />
+
+      <a class="link back" href="/"><span>terug</span></a>
     </div>
   </article>
 </MainLayout>
 
 <style>
-  body {
-    background: var(--clr-yellow);
-  }
-
   article {
     padding: var(--space-s-2xl);
-    max-width: 1280px;
+    max-width: 960px;
     margin: 0 auto;
+    position: relative;
+  }
+
+  .title {
+    margin: 1rem 0 0 0;
+    padding: 0;
   }
 
   img {
     height: auto;
     margin: 2rem 0;
+  }
+
+  .tag {
+    background: var(--clr-white);
+    border: none;
+  }
+
+  .link {
+    text-decoration: none;
+    content: "";
+  }
+
+  .back {
+    display: inline-flex;
+    width: min-content;
+  }
+
+  .back::before {
+    content: "← ";
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    padding-right: 0.2em;
+  }
+  .back:hover::before {
+    transform: translateX(-5px);
+    padding-right: 0.1em;
+    /* animation: bounce 2s infinite; */
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateX(0);
+    }
+    40% {
+      transform: translateX(-5px);
+    }
+    60% {
+      transform: translateX(-10px);
+    }
   }
 </style>

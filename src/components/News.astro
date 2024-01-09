@@ -17,6 +17,7 @@ const posts = (await getCollection("blog")).sort(
               src={post.data.heroImage.src}
               alt={post.data.heroImage.alt}
               width={720}
+              height="auto"
               class="thumb-news"
             />
             <p class="tag">

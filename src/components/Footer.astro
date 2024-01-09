@@ -30,8 +30,15 @@ const today = new Date();
     </ul>
     <div class="credits">
       <div class="copyright">&copy; {today.getFullYear()} {NAME}</div>
-      <div class="allthis">website by: allthis.digital</div>
+      <div class="allthis">
+        design + dev: <a href="https://allthis.digital" target="_blank"
+          >allthis.digital</a
+        >
+      </div>
     </div>
+  </div>
+  <div class="bloem">
+    <img src="/assets/tuinierhier-bloem.svg" />
   </div>
 </footer>
 
@@ -39,6 +46,7 @@ const today = new Date();
   footer {
     padding: var(--space-s-2xl);
     font-size: clamp(0.75rem, 0.75vw + 0.6rem, 1.5rem);
+    z-index: 900;
   }
 
   .description {
@@ -68,12 +76,39 @@ const today = new Date();
     display: grid;
     grid-template-columns: 1fr max-content;
     margin-top: var(--space-s-m);
-    font-size: var(--fs-2xs);
+    font-size: calc(var(--fs-1xs) * 0.75);
     font-weight: var(--fw-700);
+    color: #ccc;
+  }
+  .credits a {
+    color: var(--clr-navy);
+  }
+
+  .bloem {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2rem;
+    transform: translate(-50%, -50%);
   }
   @media only screen and (min-width: 1024px) {
     footer {
       padding: var(--space-s-m);
     }
+    .bloem {
+      top: 50%;
+      right: 0;
+      width: 4rem;
+      transform: translate(50%, -50%);
+      z-index: 999;
+    }
   }
 </style>
+
+<script>
+  var elem = document.querySelector(".bloem");
+  window.addEventListener("scroll", function () {
+    var value = window.scrollY * 1;
+    elem.style.transform = `translatex(50%) translatey(-50%) rotate(${value}deg)`;
+  });
+</script>
