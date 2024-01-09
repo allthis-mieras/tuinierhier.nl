@@ -107,8 +107,11 @@ const today = new Date();
 
 <script>
   var elem = document.querySelector(".bloem");
-  window.addEventListener("scroll", function () {
-    var value = window.scrollY * 1;
-    elem.style.transform = `translatex(50%) translatey(-50%) rotate(${value}deg)`;
-  });
+
+  if (elem) {
+    window.addEventListener("scroll", function () {
+      var value = window.scrollY * 1;
+      elem.style.transform = `rotate(${value}deg)`;
+    });
+  }
 </script>
