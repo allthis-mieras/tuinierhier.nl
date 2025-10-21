@@ -2,29 +2,31 @@
 // component imports
 import MainLayout from "../layouts/MainLayout.astro";
 
-import Hero from "../components/Hero.astro";
-import News from "../components/News.astro";
-import Services from "../components/Services.astro";
-import Contact from "../components/Contact.astro";
+import Hero from "../components/sections/Hero.astro";
+import News from "../components/sections/News.astro";
+import Services from "../components/sections/Services.astro";
+import Contact from "../components/sections/Contact.astro";
 ---
 
 <MainLayout title="My Blog">
   <Hero />
-  <section class="about">
-    <p class="fs-2xl fw-700 lh-loose-1">
+  <section
+    class="bg-clr-blue sticky top-0 z-20 min-h-screen grid content-center p-[var(--space-m-xl)] lg:grid-cols-[2fr_1fr] lg:gap-[var(--space-s-m)]"
+  >
+    <p class="text-[var(--step-2)] font-bold leading-tight">
       Ik ben Eefje en ik houd niet zo van grijs en wel van groen. En van
       beestjes. En bloemen. Omdat het fijner is om naar te kijken aan te ruiken
       en aan te voelen. En ik vind dat er wel wat meer bij kan.
     </p>
-    <div class="info">
-      <p class="fw-700 lh-loose-1">
+    <div class="grid gap-[var(--space-m)]">
+      <p class="font-bold leading-tight">
         Ik ken heel wat mensen die best graag meer zouden willen met groen. Of
         die nog wel een stap verder zouden willen gaan en ook nog wel wat
         regenwater zouden willen opvangen, of willen helpen de bijensterfte
         tegen te gaan, meer vlindersoorten in stand te houden, vogels en egels
         fijne plekken te bieden.
       </p>
-      <p class="fw-500 fs-1xs lh-loose-3">
+      <p class="font-medium text-[var(--step--2)] leading-relaxed">
         Maar hoe dan? En gaat daar niet heel veel tijd en onderhoud in zitten?
         Moet je daar dan verstand van hebben? Of groene vingers? Ik zeg: NEE.
         Volg mij gewoon. Ik doe uiteindelijk ook maar wat. Zowel online als 'In

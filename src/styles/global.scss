@@ -1,0 +1,17 @@
+// global.scss - Hoofdbestand dat alle styles importeert
+// Dit bestand vervangt de oude global.css en dient als entry point
+
+// 1. Reset en basis
+@use 'reset';
+
+// 2. Design tokens en variabelen  
+@use 'tokens';
+@use 'variables';
+
+// 3. Utopia fluid typography en spacing
+@use 'utopia';
+
+// 4. Typography mixins en utilities
+@use 'typography';
+
+// 5. Tailwind CSS (blijft via aparte import in layout)

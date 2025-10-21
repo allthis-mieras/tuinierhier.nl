@@ -1,0 +1,77 @@
+---
+import { NAME } from "../../consts";
+const today = new Date();
+---
+
+<footer
+  class="bg-white max-h-screen grid content-between sticky top-0 self-start overflow-y-auto z-50 p-[var(--space-m-xl)] lg:p-[var(--space-s)] lg:order-1"
+>
+  <p
+    class="text-[var(--step--1)] lg:text-[var(--step--2)] font-bold leading-tight [text-wrap:pretty] lg:leading-normal"
+  >
+    Tuinierhier is Eefje Peddemors; tuinfluencer, plantlover, kweekbeest,
+    tuintijger en gardenista sur plus. Maakt grijze ongezellige situaties groen
+    en gezellig.
+  </p>
+
+  <div class="grid gap-2">
+    <ul
+      class="grid gap-1 lg:gap-0.5 text-[var(--step--2)] lg:text-[12px] font-bold"
+    >
+      <li>
+        <a
+          href="https://instagram.com/tuinierhier"
+          class="block underline decoration-gray-300 underline-offset-[0.25em] decoration-[0.15em] text-gray-600 relative pl-4 lg:pl-3 leading-tight hover:text-gray-800 hover:decoration-gray-800 before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+        >
+          instagram.com/tuinierhier
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://linkedin.com/"
+          class="block underline decoration-gray-300 underline-offset-[0.25em] decoration-[0.15em] text-gray-600 relative pl-4 lg:pl-3 leading-tight hover:text-gray-800 hover:decoration-gray-800 before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+        >
+          linkedin.com/eefjepeddemors
+        </a>
+      </li>
+      <li>
+        <a
+          href="mailto:eefje@tuinierhier.nl"
+          class="block underline decoration-gray-300 underline-offset-[0.25em] decoration-[0.15em] text-gray-600 relative pl-4 lg:pl-3 leading-tight hover:text-gray-800 hover:decoration-gray-800 before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+        >
+          eefje@tuinierhier.nl
+        </a>
+      </li>
+    </ul>
+    <div
+      class="grid lg:grid-cols-1 mt-[var(--space-s-m)] text-[var(--step--2)] lg:text-[10px] font-bold text-gray-300 lg:gap-1"
+    >
+      <div>&copy; {today.getFullYear()} {NAME}</div>
+      <div>
+        design + dev: <a
+          href="https://allthis.digital"
+          target="_blank"
+          class="text-clr-navy"
+        >
+          allthis.digital
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="bloem absolute top-0 right-0 w-8 -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:w-16 lg:translate-x-1/2 lg:-translate-y-1/2 lg:z-[999]"
+  >
+    <img src="/assets/tuinierhier-bloem.svg" />
+  </div>
+</footer>
+
+<script>
+  const elem = document.querySelector(".bloem") as HTMLElement;
+
+  if (elem) {
+    window.addEventListener("scroll", function () {
+      const value = window.scrollY * 1;
+      elem.style.transform = `translateX(50%) translateY(-50%) rotate(${value}deg)`;
+    });
+  }
+</script>

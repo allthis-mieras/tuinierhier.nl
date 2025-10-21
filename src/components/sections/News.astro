@@ -1,36 +1,46 @@
 ---
 import { getCollection } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
+import FormattedDate from "../common/FormattedDate.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a: any, b: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
-<section>
-  <ul class="news-list">
+<section
+  class="bg-clr-yellow sticky top-0 z-40 min-h-screen grid content-center p-[var(--space-m-xl)]"
+>
+  <ul class="grid gap-[var(--space-s-m)] md:grid-cols-2 lg:grid-cols-3">
     {
       posts.map((post) => (
-        <li class="news-item">
-          <a href={`/blog/${post.slug}/`}>
+        <li>
+          <a
+            href={`/blog/${post.slug}/`}
+            class="block no-underline text-inherit"
+          >
             <img
               src={post.data.heroImage.src}
               alt={post.data.heroImage.alt}
               width={720}
               height="auto"
-              class="thumb-news"
+              class="w-full h-auto mb-[var(--space-xs-s)]"
             />
-            <p class="tag">
+            <p class="tag mb-[var(--space-3xs-2xs)]">
               <FormattedDate date={post.data.pubDate} />
             </p>
-            <h4 class="title">{post.data.title}</h4>
-            <p class="intro">{post.data.description}</p>
+            <h4 class="text-[var(--step-1)] font-bold my-[var(--space-3xs-2xs)]">
+              {post.data.title}
+            </h4>
+            <p class="font-semibold text-[var(--step--1)] leading-relaxed">
+              {post.data.description}
+            </p>
           </a>
         </li>
       ))
     }
   </ul>
-  <!-- <h2 class="section-title">Nieuws</h2>
+</section>
+<!-- <h2 class="section-title">Nieuws</h2>
   <div class="news-wrap">
     <div class="news-list">
       <div class="news-item">
@@ -94,57 +104,3 @@ const posts = (await getCollection("blog")).sort(
       </div>
     </div>
   </div> -->
-</section>
-
-<style>
-  section {
-    background: var(--clr-yellow);
-    position: relative;
-    top: 0;
-    z-index: 4;
-    min-height: 100vh;
-    display: grid;
-    align-content: center;
-  }
-
-  .news-list {
-    display: grid;
-    gap: var(--grid-gutter);
-  }
-
-  .news-item a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .thumb-news {
-    width: 100%;
-    height: auto;
-    margin-bottom: var(--space-xs-s);
-  }
-
-  .title {
-    font-size: var(--fs-1xl);
-    font-weight: var(--fw-700);
-    margin: var(--space-3xs-2xs) 0;
-  }
-
-  .intro {
-    font-weight: var(--fw-600);
-    font-size: var(--fs-sm);
-    line-height: var(--lh-loose-3);
-  }
-
-  p + p {
-    margin-top: var(--space-3xs-2xs);
-    font-size: var(--fs-sm);
-    line-height: var(--lh-loose-3);
-  }
-
-  @media only screen and (min-width: 768px) {
-    .news-list {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--grid-gutter);
-    }
-  }
-</style>

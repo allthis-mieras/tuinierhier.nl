@@ -1,0 +1,100 @@
+// _typography.scss - Typography mixins en utilities
+
+@use 'tokens' as *;
+
+// Typography Mixins
+@mixin font-size($size, $line-height: normal) {
+    font-size: map-get($font-sizes, $size);
+
+    @if $line-height !=normal {
+        line-height: map-get($line-heights, $line-height);
+    }
+}
+
+@mixin heading-base {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+}
+
+@mixin heading-1 {
+    @include heading-base;
+    font-size: var(--step-6, 3.75rem);
+    line-height: 1.1;
+}
+
+@mixin heading-2 {
+    @include heading-base;
+    font-size: var(--step-5, 3rem);
+}
+
+@mixin heading-3 {
+    @include heading-base;
+    font-size: var(--step-4, 2.25rem);
+}
+
+@mixin heading-4 {
+    @include heading-base;
+    font-size: var(--step-3, 1.875rem);
+}
+
+@mixin heading-5 {
+    @include heading-base;
+    font-size: var(--step-2, 1.5rem);
+}
+
+@mixin heading-6 {
+    @include heading-base;
+    font-size: var(--step-1, 1.25rem);
+}
+
+@mixin body-text {
+    font-family: var(--font-sans);
+    font-size: var(--step-0, 1rem);
+    line-height: 1.6;
+    color: var(--color-gray-700);
+}
+
+@mixin body-large {
+    @include body-text;
+    font-size: var(--step-1, 1.25rem);
+}
+
+@mixin body-small {
+    @include body-text;
+    font-size: var(--step--1, 0.875rem);
+}
+
+@mixin caption {
+    font-family: var(--font-sans);
+    font-size: var(--step--2, 0.75rem);
+    line-height: 1.4;
+    color: var(--color-gray-500);
+}
+
+// Responsive Typography Utilities
+@mixin text-responsive {
+    font-size: clamp(var(--step--1), 2.5vw, var(--step-1));
+}
+
+@mixin title-responsive {
+    font-size: clamp(var(--step-2), 5vw, var(--step-6));
+}
+
+// Text styling utilities
+@mixin text-gradient($from: var(--color-primary), $to: var(--color-secondary)) {
+    background: linear-gradient(135deg, $from, $to);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+@mixin text-shadow-soft {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@mixin text-shadow-strong {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
