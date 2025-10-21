@@ -11,29 +11,28 @@ import Contact from "../components/sections/Contact.astro";
 <MainLayout title="My Blog">
   <Hero />
   <section
-    class="bg-clr-blue sticky top-0 z-20 min-h-screen grid content-center p-[var(--space-m-xl)] lg:grid-cols-[2fr_1fr] lg:gap-[var(--space-s-m)]"
+    class="bg-clr-blue sticky top-0 z-20 lg:min-h-screen grid p-[var(--space-m-xl)] lg:grid-cols-[2fr_1fr_1fr] gap-[var(--space-s-m)]"
   >
-    <p class="text-[var(--step-2)] font-bold leading-tight">
+    <p class="text-[length:var(--step-1)] font-bold leading-tight">
       Ik ben Eefje en ik houd niet zo van grijs en wel van groen. En van
       beestjes. En bloemen. Omdat het fijner is om naar te kijken aan te ruiken
       en aan te voelen. En ik vind dat er wel wat meer bij kan.
     </p>
-    <div class="grid gap-[var(--space-m)]">
-      <p class="font-bold leading-tight">
-        Ik ken heel wat mensen die best graag meer zouden willen met groen. Of
-        die nog wel een stap verder zouden willen gaan en ook nog wel wat
-        regenwater zouden willen opvangen, of willen helpen de bijensterfte
-        tegen te gaan, meer vlindersoorten in stand te houden, vogels en egels
-        fijne plekken te bieden.
-      </p>
-      <p class="font-medium text-[var(--step--2)] leading-relaxed">
-        Maar hoe dan? En gaat daar niet heel veel tijd en onderhoud in zitten?
-        Moet je daar dan verstand van hebben? Of groene vingers? Ik zeg: NEE.
-        Volg mij gewoon. Ik doe uiteindelijk ook maar wat. Zowel online als 'In
-        Real Life'. Doe vooral gezellig met me mee. Je krijgt er geen spijt van.
-        Beloofd.
-      </p>
-    </div>
+
+    <p class="text-[length:var(--step--2)] font-bold leading-tight">
+      Ik ken heel wat mensen die best graag meer zouden willen met groen. Of die
+      nog wel een stap verder zouden willen gaan en ook nog wel wat regenwater
+      zouden willen opvangen, of willen helpen de bijensterfte tegen te gaan,
+      meer vlindersoorten in stand te houden, vogels en egels fijne plekken te
+      bieden.
+    </p>
+    <p class="font-medium text-[length:var(--step--2)] leading-tight">
+      Maar hoe dan? En gaat daar niet heel veel tijd en onderhoud in zitten?
+      Moet je daar dan verstand van hebben? Of groene vingers? Ik zeg: NEE. Volg
+      mij gewoon. Ik doe uiteindelijk ook maar wat. Zowel online als 'In Real
+      Life'. Doe vooral gezellig met me mee. Je krijgt er geen spijt van.
+      Beloofd.
+    </p>
   </section>
   <Services />
   <News />
