@@ -2,11 +2,11 @@
 import { NAME, NAME_REAL } from "../consts";
 ---
 
-<main>
+<header>
   <div class="cover-wrap">
     <div class="cover-inner">
       <h2 class="subtitle">{NAME_REAL}</h2>
-      <h1 class="title">{NAME}</h1>
+      <h1 class="title" id="hero-title">{NAME}</h1>
       <ul class="tags">
         <li class="tag hero">Tuinfluencer</li>
         <li class="tag hero">Plantlover</li>
@@ -30,15 +30,18 @@ import { NAME, NAME_REAL } from "../consts";
       src='./assets/bloemenhommel-transcode.webm"'
     /></video
   >
-</main>
+</header>
 
 <style>
-  main {
-    min-height: 50vh;
-    position: relative;
+  header {
+    min-height: 70vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
   .cover-wrap {
     position: absolute;
+    overflow: hidden;
     z-index: 10;
     display: grid;
     max-width: 100%;
@@ -93,3 +96,18 @@ import { NAME, NAME_REAL } from "../consts";
     }
   }
 </style>
+
+<script>
+  const heroTitle = document.getElementById("hero-title") as HTMLElement;
+
+  if (heroTitle) {
+    window.addEventListener("scroll", () => {
+      const scrolled = window.scrollY;
+      const scale = 1 + scrolled * 0.025; // Langzaam groter worden
+      const blur = scrolled * 0.15; // Langzaam meer blur
+
+      heroTitle.style.transform = `scale(${scale})`;
+      heroTitle.style.filter = `blur(${blur}px)`;
+    });
+  }
+</script>

@@ -44,7 +44,7 @@ const today = new Date();
 
 <style>
   footer {
-    padding: var(--space-s-2xl);
+    padding: var(--space-m-2xl);
     font-size: clamp(0.75rem, 0.75vw + 0.6rem, 1.5rem);
     z-index: 900;
   }
@@ -52,7 +52,8 @@ const today = new Date();
   .description {
     font-size: var(--fs-sm);
     font-weight: var(--fw-700);
-    line-height: var(--lh-loose-2);
+    line-height: var(--lh-loose-3);
+    text-wrap: pretty;
   }
   .bottom {
     display: grid;
@@ -62,15 +63,32 @@ const today = new Date();
   .social-links {
     display: grid;
     gap: 0.5rem;
-    font-size: var(--fs-sm);
+    font-size: var(--fs-1xs);
     font-weight: var(--fw-700);
   }
   .social-links a {
-    text-decoration: none;
+    display: flex;
+    text-decoration: underline;
+    text-decoration-color: #ccc;
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 0.15em;
+
+    line-height: 100%;
+
     color: rgb(var(--gray));
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .social-links a::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-decoration: none;
   }
   .social-links a:hover {
     color: rgb(var(--gray-dark));
+    text-decoration-color: rgb(var(--gray-dark));
   }
   .credits {
     display: grid;
@@ -93,7 +111,8 @@ const today = new Date();
   }
   @media only screen and (min-width: 1024px) {
     footer {
-      padding: var(--space-s-m);
+      padding: var(--space-s-m) var(--space-s-m);
+      width: fit-content;
     }
     .bloem {
       top: 50%;
