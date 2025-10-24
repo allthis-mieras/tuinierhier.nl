@@ -1,0 +1,72 @@
+---
+export interface Props {
+  variant?: "default" | "hero";
+  class?: string;
+  href?: string;
+}
+
+const {
+  variant = "default",
+  class: className = "",
+  href,
+  ...props
+} = Astro.props;
+
+const baseClasses = "tag";
+const variantClasses = {
+  default: "tag--default",
+  hero: "tag--hero",
+};
+const classes = [baseClasses, variantClasses[variant], className]
+  .filter(Boolean)
+  .join(" ");
+
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+---
+
+{
+  href ? (
+    <a href={href} class:list={[classes, { active: isActive }]} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <span class={classes} {...props}>
+      <slot />
+    </span>
+  )
+}
+
+<style>
+  .tag {
+    display: inline-block;
+    font-family: var(--font-extra);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.1ch;
+    padding: var(--space-3xs) var(--space-2xs-xs);
+    border-radius: var(--br-full);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    line-height: 1;
+    text-box-trim: both;
+    text-edge: cap alphabetic;
+    text-decoration: none;
+  }
+
+  .tag--default {
+    background: var(--clr-white);
+    color: var(--clr-black);
+  }
+
+  .tag--hero {
+    background: var(--clr-blue);
+    color: var(--clr-navy);
+    border: none;
+  }
+
+  .tag.active {
+    font-weight: bolder;
+    text-decoration: underline;
+  }
+</style>

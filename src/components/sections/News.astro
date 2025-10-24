@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import FormattedDate from "../common/FormattedDate.astro";
+import Card from "../common/Card.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a: any, b: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<section
+  class="bg-clr-black z-40 text-white relative grid content-center p-[var(--space-m-xl)]"
+>
+  <div
+    class="grid auto-rows-min gap-[var(--space-s-m)] items-start justify-items-start md:grid-cols-2 lg:grid-cols-3"
+  >
+    {
+      posts.map((post) => (
+        <Card
+          href={`/blog/${post.slug}/`}
+          imageSrc={post.data.heroImage.src}
+          imageAlt={post.data.heroImage.alt}
+          title={post.data.title}
+          description={post.data.description}
+        >
+          <FormattedDate slot="meta" date={post.data.pubDate} />
+        </Card>
+      ))
+    }
+  </div>
+</section>

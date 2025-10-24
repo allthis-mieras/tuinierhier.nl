@@ -1,30 +1,103 @@
 ---
-// component import
+// Component imports
 import MainHead from "./MainHead.astro";
-import Footer from "../components/Footer.astro";
-// import Nav from "../components/Nav.astro";
+import Footer from "../components/layout/Footer.astro";
 
-// style import
-import "../styles/reset.css";
-import "../styles/global.css";
+// Style imports
+import "../styles/global.scss";
 
+// TypeScript interface voor props
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  robots?: string;
+}
+
+// Props met default waarden
 const {
   title = "Tuinierhier • Eefje Peddemors",
   description = "Tuinfluencer, plantlover, kweekbeest, tuintijger, gardenista",
   image,
   robots,
-} = Astro.props;
+}: Props = Astro.props;
 ---
 
-<html lang="en">
+<html lang="nl">
   <MainHead {title} {description} {image} {robots} />
   <body>
-    <!-- <Nav /> -->
     <div class="page-wrap">
-      <main>
-        <slot> Default Text</slot>
+      <main class="main-content">
+        <slot />
       </main>
       <Footer />
     </div>
+    <style>
+      /* Page wrapper base styles */
+      .page-wrap {
+        height: 100%;
+        background: var(--clr-yellow);
+      }
+
+      /* Complex Grid Layout voor page-wrap */
+      @media (min-width: 1024px) {
+        .page-wrap {
+          display: grid;
+          grid-template-columns: minmax(25%, 1fr) minmax(75%, 3fr);
+          align-items: start;
+        }
+
+        footer {
+          order: 1;
+          height: 100vh;
+          position: sticky;
+          top: 0;
+          z-index: 100; /* Hoogste z-index - altijd bovenop */
+        }
+
+        .main-content {
+          order: 2;
+        }
+      }
+
+      /* Main content sections */
+      .main-content section {
+        padding: var(--space-m-2xl, clamp(1.5rem, 0.6rem + 4.5vw, 6rem));
+      }
+
+      /* Content Grid */
+      .content {
+        display: grid;
+        row-gap: 0;
+      }
+
+      /* About Section */
+      .about {
+        background: var(--clr-blue);
+        display: grid;
+        gap: var(--grid-gutter, var(--space-s-m));
+      }
+
+      @media (min-width: 1024px) {
+        .about {
+          display: grid;
+          grid-template-columns: 2fr 1fr;
+          gap: var(--grid-gutter, var(--space-s-m));
+        }
+      }
+
+      /* Info Section */
+      .info {
+        display: grid;
+        gap: var(--space-m, 1.5rem);
+      }
+
+      /* Mobile overrides */
+      @media only screen and (max-width: 767px) {
+        :root {
+          --page-margin: var(--global-rem, 1rem);
+        }
+      }
+    </style>
   </body>
 </html>

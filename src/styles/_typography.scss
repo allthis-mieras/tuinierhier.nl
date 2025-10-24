@@ -1,0 +1,87 @@
+// _typography.scss - Basis typography styles
+
+// Base Typography Styles
+html {
+    font-size: 100%; // 16px base
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--step-0, 1rem);
+    line-height: var(--lh-loose-1, 1.125);
+    color: var(--color-gray-800);
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Page wrapper base styles
+.page-wrap {
+    height: 100%;
+    background: var(--clr-yellow, #feffc9);
+}
+
+// Default heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+
+    margin: 0;
+}
+
+h1 {
+    font-size: var(--step-5, 3rem);
+}
+
+h2 {
+    font-family: var(--font-heading-alt);
+    font-size: var(--step-4, 2.25rem);
+}
+
+h3 {
+    font-size: var(--step-3, 1.875rem);
+}
+
+h4 {
+    font-size: var(--step-2, 1.5rem);
+}
+
+h5 {
+    font-size: var(--step-1, 1.25rem);
+}
+
+h6 {
+    font-size: var(--step-0, 1rem);
+}
+
+p {
+    margin: 0;
+    font-family: var(--font-body);
+}
+
+// Tailwind font family utilities mapping to CSS custom properties
+@layer utilities {
+    .font-heading {
+        font-family: var(--font-heading) !important;
+    }
+
+    .font-heading-alt {
+        font-family: var(--font-heading-alt) !important;
+    }
+
+    .font-body {
+        font-family: var(--font-body) !important;
+    }
+
+    .font-extra {
+        font-family: var(--font-extra) !important;
+    }
+}

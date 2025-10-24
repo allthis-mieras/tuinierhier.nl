@@ -1,0 +1,19 @@
+// global.scss - Hoofdbestand dat alle styles importeert
+// Minimale setup met alleen essentiële imports
+
+// 1. Reset en basis
+@use 'reset';
+
+// 2. Variabelen
+@use 'variables';
+
+// 3. Utopia fluid typography en spacing
+@use 'utopia';
+
+// 4. Typography basis styles
+@use 'typography';
+
+// 5. Tailwind CSS directives
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

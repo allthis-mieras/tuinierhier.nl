@@ -1,0 +1,36 @@
+// Import Utopia SCSS library
+@use 'node_modules/utopia-core-scss/src/utopia' as utopia;
+
+// Utopia Fluid Typography
+// @link https://utopia.fyi/type/calculator?c=360,18,1.2,1512,24,1.25,10,2,&s=0.75,1.5|2|3|4|6,s-l&g=s,l,xl,12
+
+:root {
+    @include utopia.generateTypeScale(("minWidth": 320,
+            "maxWidth": 1512,
+            "minFontSize": 18,
+            "maxFontSize": 24,
+            "minTypeScale": 1.2,
+            "maxTypeScale": 1.25,
+            "positiveSteps": 10,
+            "negativeSteps": 2,
+            "prefix": "step-",
+            "relativeTo": "viewport-width"
+        ));
+}
+
+
+// Utopia Fluid Spacing
+// @link https://utopia.fyi/space/calculator?c=360,18,1.2,1512,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l|s-l|s-xl|m-xl&g=s,l,xl,12
+
+:root {
+    @include utopia.generateSpaceScale(("minWidth": 360,
+            "maxWidth": 1512,
+            "minSize": 18,
+            "maxSize": 24,
+            "positiveSteps": (1.5, 2, 3, 4, 6),
+            "negativeSteps": (0.75, 0.5, 0.25),
+            "customSizes": ("s-l", "s-xl", "m-xl", "s-2xl"),
+            "prefix": "space-",
+            "relativeTo": "viewport-width"
+        ));
+}
