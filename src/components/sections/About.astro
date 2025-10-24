@@ -1,0 +1,102 @@
+---
+// About section component
+// Content data
+const aboutContent = {
+  intro:
+    "Ik ben Eefje en ik houd niet zo van grijs en wel van groen. En van beestjes. En bloemen. Omdat het fijner is om naar te kijken aan te ruiken en aan te voelen. En ik vind dat er wel wat meer bij kan.",
+
+  details: [
+    "Ik ken heel wat mensen die best graag meer zouden willen met groen. Of die nog wel een stap verder zouden willen gaan en ook nog wel wat regenwater zouden willen opvangen, of willen helpen de bijensterfte tegen te gaan, meer vlindersoorten in stand te houden, vogels en egels fijne plekken te bieden.",
+    "Maar hoe dan? En gaat daar niet heel veel tijd en onderhoud in zitten? Moet je daar dan verstand van hebben? Of groene vingers? Ik zeg: NEE. Volg mij gewoon. Ik doe uiteindelijk ook maar wat. Zowel online als 'In Real Life'. Doe vooral gezellig met me mee. Je krijgt er geen spijt van. Beloofd.",
+  ],
+};
+---
+
+<section class="about-section z-20">
+  <div class="about-content">
+    <div class="about-intro">
+      <p class="intro-text">
+        {aboutContent.intro}
+      </p>
+    </div>
+
+    <div class="about-details">
+      {
+        aboutContent.details.map((detail, index) => (
+          <p
+            class={`detail-text ${
+              index === aboutContent.details.length - 1 ? "call-to-action" : ""
+            }`}
+          >
+            {detail}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: var(--clr-blue);
+    position: relative;
+    z-index: 30; /* Hoger dan Hero, lager dan Services */
+    padding: var(--space-m-xl);
+  }
+
+  /* Desktop sticky gedrag */
+  @media (min-width: 1024px) {
+    .about-section {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  .about-content {
+    display: grid;
+    gap: var(--space-s-m);
+  }
+
+  .intro-text {
+    font-size: var(--step-1);
+    font-weight: bold;
+    line-height: 133%;
+    margin: 0;
+  }
+
+  .about-details {
+    display: grid;
+    gap: var(--space-s-m);
+  }
+
+  .detail-text {
+    font-size: var(--step--2);
+    font-weight: bold;
+    line-height: 150%;
+    margin: 0;
+  }
+
+  .call-to-action {
+    font-weight: 500;
+  }
+
+  /* Desktop layout */
+  @media (min-width: 1024px) {
+    .about-section {
+      position: sticky;
+      top: 0;
+    }
+
+    .about-content {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .about-intro {
+      grid-column: 1;
+    }
+
+    .about-details {
+      grid-column: 2 / -1;
+    }
+  }
+</style>

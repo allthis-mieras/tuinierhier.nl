@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         'heading': ['new-spirit-condensed', 'Helvetica Neue', 'Helvetica', 'system-ui', 'sans-serif'],
-        'heading-2': ['new-spirit', 'Helvetica Neue', 'Helvetica', 'system-ui', 'sans-serif'], 
+        'heading-alt': ['new-spirit', 'Helvetica Neue', 'Helvetica', 'system-ui', 'sans-serif'], 
         'body': ['Manrope', 'Helvetica Neue', 'Helvetica', 'system-ui', 'sans-serif'],
         'extra': ['anchor-web', 'Helvetica Neue', 'Helvetica', 'system-ui', 'sans-serif'],
       },

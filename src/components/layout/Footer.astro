@@ -4,10 +4,10 @@ const today = new Date();
 ---
 
 <footer
-  class="bg-white max-h-screen grid content-between sticky top-0 self-start overflow-y-auto z-50 p-[var(--space-m-xl)] lg:p-[var(--space-s)] lg:order-1"
+  class="footer-sidebar bg-white lg:h-screen grid overflow-visible content-between lg:sticky top-0 self-start z-[60] p-[var(--space-m-xl)] lg:p-[var(--space-s)] lg:order-1"
 >
   <p
-    class="text-[var(--step--1)] lg:text-[var(--step--2)] font-bold leading-tight [text-wrap:pretty] lg:leading-normal"
+    class="text-[length:var(--step--1)] lg:text-[length:var(--step--2)] font-bold leading-tight [text-wrap:pretty] lg:leading-normal"
   >
     Tuinierhier is Eefje Peddemors; tuinfluencer, plantlover, kweekbeest,
     tuintijger en gardenista sur plus. Maakt grijze ongezellige situaties groen
@@ -15,36 +15,25 @@ const today = new Date();
   </p>
 
   <div class="grid gap-2">
-    <ul
-      class="grid gap-1 lg:gap-0.5 text-[var(--step--2)] lg:text-[12px] font-bold"
-    >
+    <ul class="grid gap-1 text-[length:var(--step--2)] font-bold">
       <li>
-        <a
-          href="https://instagram.com/tuinierhier"
-          class="block underline decoration-gray-300 underline-offset-[0.25em] decoration-[0.15em] text-gray-600 relative pl-4 lg:pl-3 leading-tight hover:text-gray-800 hover:decoration-gray-800 before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
-        >
+        <a href="https://instagram.com/tuinierhier" class="footer-link">
           instagram.com/tuinierhier
         </a>
       </li>
       <li>
-        <a
-          href="https://linkedin.com/"
-          class="block underline decoration-gray-300 underline-offset-[0.25em] decoration-[0.15em] text-gray-600 relative pl-4 lg:pl-3 leading-tight hover:text-gray-800 hover:decoration-gray-800 before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
-        >
+        <a href="https://linkedin.com/" class="footer-link">
           linkedin.com/eefjepeddemors
         </a>
       </li>
       <li>
-        <a
-          href="mailto:eefje@tuinierhier.nl"
-          class="block underline decoration-gray-300 underline-offset-[0.25em] decoration-[0.15em] text-gray-600 relative pl-4 lg:pl-3 leading-tight hover:text-gray-800 hover:decoration-gray-800 before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
-        >
+        <a href="mailto:eefje@tuinierhier.nl" class="footer-link">
           eefje@tuinierhier.nl
         </a>
       </li>
     </ul>
     <div
-      class="grid lg:grid-cols-1 mt-[var(--space-s-m)] text-[var(--step--2)] lg:text-[10px] font-bold text-gray-300 lg:gap-1"
+      class="grid lg:grid-cols-1 mt-[var(--space-s-m)] text-[length:var(--step--2)] lg:text-[10px] font-bold text-gray-300 lg:gap-1"
     >
       <div>&copy; {today.getFullYear()} {NAME}</div>
       <div>
@@ -59,11 +48,49 @@ const today = new Date();
     </div>
   </div>
   <div
-    class="bloem absolute top-0 right-0 w-8 -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:w-16 lg:translate-x-1/2 lg:-translate-y-1/2 lg:z-[999]"
+    class="bloem absolute top-0 left-1/2 w-12 -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:left-auto lg:right-0 lg:w-16 lg:translate-x-1/2 lg:-translate-y-1/2 lg:z-[999]"
   >
     <img src="/assets/tuinierhier-bloem.svg" />
   </div>
 </footer>
+
+<style>
+  /* Footer Layout */
+  .footer-sidebar {
+    background: white;
+
+    display: grid;
+    align-content: space-between;
+    position: sticky;
+    top: 0;
+    align-self: start;
+  }
+
+  .footer-link {
+    display: block;
+    text-decoration: underline;
+    text-decoration-color: rgb(156 163 175);
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 0.125em;
+    color: rgb(75 85 99);
+    position: relative;
+    padding-left: 1.25em;
+    line-height: 1.25;
+  }
+
+  .footer-link:hover {
+    color: rgb(31 41 55);
+    text-decoration-color: rgb(31 41 55);
+  }
+
+  .footer-link::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-decoration: none;
+  }
+</style>
 
 <script>
   const elem = document.querySelector(".bloem") as HTMLElement;

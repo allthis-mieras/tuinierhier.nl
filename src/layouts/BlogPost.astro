@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 
 import MainLayout from "../layouts/MainLayout.astro";
 import FormattedDate from "../components/common/FormattedDate.astro";
+import Tag from "../components/common/Tag.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -14,9 +15,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   <article>
     <div class="title">
       <div class="date">
-        <div class="tag">
+        <Tag variant="default">
           <FormattedDate date={pubDate} />
-        </div>
+        </Tag>
         {
           updatedDate && (
             <div class="last-updated-on">
@@ -69,11 +70,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   img {
     height: auto;
     margin: 2rem 0;
-  }
-
-  .tag {
-    background: var(--clr-white);
-    border: none;
   }
 
   .link {

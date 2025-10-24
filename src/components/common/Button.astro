@@ -1,0 +1,94 @@
+---
+export interface Props {
+  href?: string;
+  variant?: "primary" | "secondary" | "outline";
+  class?: string;
+  type?: "button" | "submit" | "reset";
+}
+
+const {
+  href,
+  variant = "primary",
+  class: className = "",
+  type = "button",
+  ...props
+} = Astro.props;
+
+const baseClasses = "button";
+const variantClasses = {
+  primary: "button--primary",
+  secondary: "button--secondary",
+  outline: "button--outline",
+};
+const classes = [baseClasses, variantClasses[variant], className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} {...props}>
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  .button {
+    display: inline-block;
+    font-family: var(--font-extra);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: var(--ls-normal);
+    padding: var(--space-s) var(--space-m);
+    border-radius: var(--br-full);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    transition: all var(--duration-normal) var(--ease-in-out);
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .button--primary {
+    background: var(--clr-green);
+    color: var(--clr-white);
+    border-color: var(--clr-green);
+  }
+
+  .button--primary:hover {
+    background: var(--clr-navy);
+    border-color: var(--clr-navy);
+  }
+
+  .button--secondary {
+    background: var(--clr-yellow);
+    color: var(--clr-black);
+    border-color: var(--clr-yellow);
+  }
+
+  .button--secondary:hover {
+    background: var(--clr-yellow-warm);
+    border-color: var(--clr-yellow-warm);
+  }
+
+  .button--outline {
+    background: transparent;
+    color: var(--clr-black);
+    border-color: var(--clr-black);
+  }
+
+  .button--outline:hover {
+    background: var(--clr-black);
+    color: var(--clr-white);
+  }
+</style>

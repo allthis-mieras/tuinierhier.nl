@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import FormattedDate from "../common/FormattedDate.astro";
+import Card from "../common/Card.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a: any, b: any) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -8,99 +9,23 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <section
-  class="bg-clr-yellow sticky top-0 z-40 min-h-screen grid content-center p-[var(--space-m-xl)]"
+  class="bg-clr-black z-40 text-white relative grid content-center p-[var(--space-m-xl)]"
 >
-  <ul class="grid gap-[var(--space-s-m)] md:grid-cols-2 lg:grid-cols-3">
+  <div
+    class="grid auto-rows-min gap-[var(--space-s-m)] items-start justify-items-start md:grid-cols-2 lg:grid-cols-3"
+  >
     {
       posts.map((post) => (
-        <li>
-          <a
-            href={`/blog/${post.slug}/`}
-            class="block no-underline text-inherit"
-          >
-            <img
-              src={post.data.heroImage.src}
-              alt={post.data.heroImage.alt}
-              width={720}
-              height="auto"
-              class="w-full h-auto mb-[var(--space-xs-s)]"
-            />
-            <p class="tag mb-[var(--space-3xs-2xs)]">
-              <FormattedDate date={post.data.pubDate} />
-            </p>
-            <h4 class="text-[var(--step-1)] font-bold my-[var(--space-3xs-2xs)]">
-              {post.data.title}
-            </h4>
-            <p class="font-semibold text-[var(--step--1)] leading-relaxed">
-              {post.data.description}
-            </p>
-          </a>
-        </li>
+        <Card
+          href={`/blog/${post.slug}/`}
+          imageSrc={post.data.heroImage.src}
+          imageAlt={post.data.heroImage.alt}
+          title={post.data.title}
+          description={post.data.description}
+        >
+          <FormattedDate slot="meta" date={post.data.pubDate} />
+        </Card>
       ))
     }
-  </ul>
+  </div>
 </section>
-<!-- <h2 class="section-title">Nieuws</h2>
-  <div class="news-wrap">
-    <div class="news-list">
-      <div class="news-item">
-        <img
-          src="https://source.unsplash.com/random/?greenery
-          "
-          alt="plaatje"
-          class="thumb-news"
-        />
-        <p class="tag">2023</p>
-        <h3 class="title">7/10/2023 'Help, mijn tuin heeft tegels!'</h3>
-        <p class="intro">
-          In mijn nabije omgeving merkte ik een nieuw fenomeen op:
-          ‘Tegelschaamte’.
-        </p>
-        <p>
-          Bij het bekijken van het account @onderhoudsarmoe steeg het schaamrood
-          sommige mensen (ik noem geen namen) naar de kaken.
-        </p>
-      </div>
-      <div class="news-item">
-        <img
-          src="https://source.unsplash.com/random/?garden,greenery
-          "
-          alt="plaatje"
-          class="thumb-news"
-        />
-        <p class="tag">2023</p>
-        <h3 class="title">Nu al een museumstuk</h3>
-        <p class="intro">
-          In het Natuurhistorisch Museum kun je me tegenwoordig zomaar
-          tegenkomen
-        </p>
-        <p>
-          In een video in de tentoonstelling ‘Nationaal Park Rotterdam’ zie je
-          mij rommelen en kletsen in mijn eigen stadstuintje. Op die manier hoop
-          ik anderen te inspireren om vooral ook lekker te gaan rommelen in hun
-          tuintje.
-        </p>
-      </div>
-      <div class="news-item">
-        <img
-          src="https://source.unsplash.com/random/?plants
-          "
-          alt="plaatje"
-          class="thumb-news"
-        />
-        <p class="tag">2023</p>
-        <h3 class="title">Socials van het Rotterdams WeerWoord</h3>
-        <p class="intro">
-          Via de sociale kanalen van het Rotterdams WeerWoord mag ik thema’s als
-          klimaatadaptatie en biodiversiteit wat dichter bij de Rotterdammer
-          brengen.
-        </p>
-        <p>
-          Met veel plezier fiets ik langs actieve Rotterdammers die tegels
-          wippen, stadsecologen die bodemdieren zoeken, waterpleinen die het
-          riool ontlasten en groene parels in de stad die het bezoeken waard
-          zijn.
-        </p>
-      </div>
-    </div>
-  </div> -->

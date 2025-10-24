@@ -1,27 +1,30 @@
 ---
 import { NAME, NAME_REAL } from "../../consts";
+import Tag from "../common/Tag.astro";
 ---
 
-<header class="min-h-[70vh] lg:min-h-[90vh] relative sticky top-0 z-10">
+<header class="min-h-[70vh] lg:min-h-[80vh] sticky top-0 z-20">
   <div
-    class="absolute overflow-hidden z-20 grid w-full h-full place-items-center text-center bg-black/50 text-white"
+    class="absolute z-20 grid w-full h-full justify-center overflow-hidden place-items-center text-center bg-black/50 text-white"
   >
     <div class="space-y-4">
-      <h2 class="font-heading-2 text-[var(--step-2)]">{NAME_REAL}</h2>
+      <h2 class="font-heading-alt text-[length:var(--step-2)] text-white">
+        {NAME_REAL}
+      </h2>
       <h1
-        class="font-heading text-[var(--step-5)] text-clr-yellow"
+        class="font-heading text-[length:var(--step-10)] leading-none text-clr-yellow"
         id="hero-title"
       >
         {NAME}
       </h1>
       <ul
-        class="flex flex-wrap gap-[var(--space-xs)] items-center justify-center"
+        class="flex flex-wrap gap-[var(--space-2xs)] items-center justify-center"
       >
-        <li class="tag hero">Tuinfluencer</li>
-        <li class="tag hero">Plantlover</li>
-        <li class="tag hero">Kweekbeest</li>
-        <li class="tag hero">Tuintijger</li>
-        <li class="tag hero">Gardenista</li>
+        <li><Tag variant="hero">Tuinfluencer</Tag></li>
+        <li><Tag variant="hero">Plantlover</Tag></li>
+        <li><Tag variant="hero">Kweekbeest</Tag></li>
+        <li><Tag variant="hero">Tuintijger</Tag></li>
+        <li><Tag variant="hero">Gardenista</Tag></li>
       </ul>
     </div>
   </div>
