@@ -204,11 +204,11 @@ export function createScrollTrigger(
  * Create a parallax effect
  */
 export function createParallax(
-  elements: gsap.TweenTarget,
+  elements: gsap.DOMTarget,
   options: {
     speed?: number;
     direction?: 'up' | 'down';
-    trigger?: gsap.TweenTarget;
+    trigger?: gsap.DOMTarget;
   } = {}
 ) {
   if (prefersReducedMotion()) return;
