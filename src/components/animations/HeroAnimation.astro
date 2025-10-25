@@ -1,0 +1,109 @@
+---
+// HeroAnimation component - handles hero section animations
+---
+
+<script>
+  import { createTextSplit } from "../../utils/animations";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    // Text split animation for hero title
+    const heroTitle = document.getElementById("hero-title") as HTMLElement;
+    if (heroTitle) {
+      // Create text split animation - letter by letter
+      createTextSplit(heroTitle, {
+        stagger: 0.08,
+        duration: 0.1,
+        delay: 0.15,
+        splitBy: "letters",
+      });
+
+      // Hero title zoom and blur effect on scroll
+      const isMobile = window.innerWidth < 768;
+
+      gsap.fromTo(
+        heroTitle,
+        {
+          scale: 1,
+          filter: "blur(0px)",
+        },
+        {
+          scale: 3,
+          filter: "blur(32px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroTitle,
+            start: isMobile ? "bottom 10%" : "bottom 30%",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    // Tags stagger animation
+    const tags = document.querySelectorAll("[data-tag]");
+    if (tags.length > 0) {
+      gsap.set(tags, {
+        opacity: 0,
+        y: 30,
+      });
+
+      gsap.to(tags, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        delay: 1.2,
+        ease: "back.out(1.7)",
+      });
+    }
+
+    // Video zoom effect on scroll
+    const heroVideo = document.getElementById("hero-video") as HTMLVideoElement;
+    if (heroVideo) {
+      const isMobile = window.innerWidth < 768;
+
+      gsap.fromTo(
+        heroVideo,
+        {
+          scale: 1,
+        },
+        {
+          scale: 2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: heroVideo,
+            start: isMobile ? "bottom 50%" : "bottom 70%",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    // Hero darken effect on scroll
+    const heroOverlay = document.querySelector(".absolute.z-20") as HTMLElement;
+    if (heroOverlay) {
+      gsap.to(heroOverlay, {
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroVideo,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }
+  }
+</script>

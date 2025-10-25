@@ -1,6 +1,7 @@
 ---
 import { NAME, NAME_REAL } from "../../consts";
 import Tag from "../common/Tag.astro";
+import HeroAnimation from "../animations/HeroAnimation.astro";
 ---
 
 <header
@@ -10,9 +11,6 @@ import Tag from "../common/Tag.astro";
     class="absolute z-20 grid w-full h-full justify-center overflow-hidden place-items-center text-center bg-black/50 text-white"
   >
     <div class="space-y-4">
-      <h2 class="font-heading-alt text-[length:var(--step-2)] text-white">
-        {NAME_REAL}
-      </h2>
       <h1
         class="font-heading text-[length:var(--step-7)] md:text-[length:var(--step-8)] lg:text-[length:var(--step-10)] leading-none text-clr-yellow whitespace-nowrap"
         id="hero-title"
@@ -20,6 +18,9 @@ import Tag from "../common/Tag.astro";
       >
         {NAME}
       </h1>
+      <p class="font-heading-alt text-[length:var(--step-2)] text-white">
+        {NAME_REAL}
+      </p>
       <ul
         class="flex flex-wrap gap-[var(--space-2xs)] items-center justify-center"
         data-animate-tags
@@ -48,109 +49,4 @@ import Tag from "../common/Tag.astro";
     /></video
   >
 </header>
-
-<script>
-  import { createTextSplit } from "../../utils/animations";
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  // Register ScrollTrigger
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Check for reduced motion preference
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
-  if (!prefersReducedMotion) {
-    // Text split animation for hero title
-    const heroTitle = document.getElementById("hero-title") as HTMLElement;
-    if (heroTitle) {
-      // Create text split animation - letter by letter
-      createTextSplit(heroTitle, {
-        stagger: 0.08,
-        duration: 0.1,
-        delay: 0.15,
-        splitBy: "letters",
-      });
-
-      // Hero title zoom and blur effect on scroll
-      const isMobile = window.innerWidth < 768;
-
-      gsap.fromTo(
-        heroTitle,
-        {
-          scale: 1,
-          filter: "blur(0px)",
-        },
-        {
-          scale: 3,
-          filter: "blur(32px)",
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroTitle,
-            start: isMobile ? "bottom 10%" : "bottom 30%",
-            end: "bottom top",
-            scrub: 1,
-          },
-        }
-      );
-    }
-
-    // Tags stagger animation
-    const tags = document.querySelectorAll("[data-tag]");
-    if (tags.length > 0) {
-      gsap.set(tags, {
-        opacity: 0,
-        y: 30,
-      });
-
-      gsap.to(tags, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        delay: 1.2,
-        ease: "back.out(1.7)",
-      });
-    }
-
-    // Video zoom effect on scroll
-    const heroVideo = document.getElementById("hero-video") as HTMLVideoElement;
-    if (heroVideo) {
-      const isMobile = window.innerWidth < 768;
-
-      gsap.fromTo(
-        heroVideo,
-        {
-          scale: 1,
-        },
-        {
-          scale: 2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: heroVideo,
-            start: isMobile ? "bottom 50%" : "bottom 70%",
-            end: "bottom top",
-            scrub: 1,
-          },
-        }
-      );
-    }
-
-    // Hero darken effect on scroll
-    const heroOverlay = document.querySelector(".absolute.z-20") as HTMLElement;
-    if (heroOverlay) {
-      gsap.to(heroOverlay, {
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroVideo,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-    }
-  }
-</script>
+<HeroAnimation />
