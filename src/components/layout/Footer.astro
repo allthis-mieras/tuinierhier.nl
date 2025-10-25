@@ -4,7 +4,7 @@ const today = new Date();
 ---
 
 <footer
-  class="footer-sidebar bg-white lg:h-screen grid overflow-visible content-between lg:sticky top-0 self-start z-[60] p-[var(--space-m-xl)] lg:p-[var(--space-s)] lg:order-1"
+  class="footer-sidebar bg-white min-h-[50vh] lg:h-screen grid overflow-visible content-between lg:sticky top-0 self-start z-[60] p-[var(--space-m-xl)] lg:p-[var(--space-s)] lg:order-1"
 >
   <p
     class="text-[length:var(--step--1)] lg:text-[length:var(--step--2)] font-bold leading-tight [text-wrap:pretty] lg:leading-normal"
@@ -36,7 +36,7 @@ const today = new Date();
       class="flex justify-between mt-[var(--space-s-m)] text-[length:var(--step--2)] lg:text-[10px] font-bold text-gray-300 lg:gap-1"
     >
       <div>&copy; {today.getFullYear()} {NAME}</div>
-      <div>
+      <div class="flex justify-end">
         design + dev: <a
           href="https://allthis.digital"
           target="_blank"
@@ -72,7 +72,7 @@ const today = new Date();
     text-decoration-color: rgb(156 163 175);
     text-underline-offset: 0.25em;
     text-decoration-thickness: 0.125em;
-    color: rgb(75 85 99);
+    color: rgb(16, 17, 18);
     position: relative;
     padding-left: 1.25em;
     line-height: 1.25;
