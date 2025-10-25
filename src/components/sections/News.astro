@@ -10,18 +10,21 @@ const posts = (await getCollection("blog")).sort(
 
 <section
   class="bg-clr-yellow z-40 text-black relative grid content-center p-[var(--space-m-xl)]"
+  id="news"
 >
   <div
     class="grid auto-rows-min gap-[var(--space-s-m)] items-start justify-items-start md:grid-cols-2 lg:grid-cols-3"
   >
     {
-      posts.map((post) => (
+      posts.map((post, index) => (
         <Card
           href={`/blog/${post.slug}/`}
           imageSrc={post.data.heroImage.src}
           imageAlt={post.data.heroImage.alt}
           title={post.data.title}
           description={post.data.description}
+          data-animate-card
+          data-card-index={index}
         >
           <FormattedDate slot="meta" date={post.data.pubDate} />
         </Card>
@@ -29,3 +32,51 @@ const posts = (await getCollection("blog")).sort(
     }
   </div>
 </section>
+
+<script>
+  import { createStaggerAnimation } from '../../utils/animations';
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    // Stagger animation for news cards
+    const newsCards = document.querySelectorAll('[data-animate-card]');
+    
+    if (newsCards.length > 0) {
+      // Set initial state
+      gsap.set(newsCards, {
+        opacity: 0,
+        y: 20,
+      });
+
+      // Create stagger animation
+      createStaggerAnimation(newsCards, {
+        animation: 'slideUp',
+        stagger: 0.1,
+        duration: 0.6,
+        delay: 0.2,
+      });
+
+      // Trigger animation when section comes into view
+      ScrollTrigger.create({
+        trigger: '#news',
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to(newsCards, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: 'power2.out',
+          });
+        },
+      });
+    }
+  }
+</script>

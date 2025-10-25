@@ -14,9 +14,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 <MainLayout {title} {description} image={heroImage.src}>
   <article class="post">
     <div class="date">
-      <Tag variant="news">
-        <FormattedDate date={pubDate} />
-      </Tag>
+      <div class="date-header">
+        <a href="/#news" class="back-to-news">
+          <Tag variant="news">←</Tag>
+        </a>
+        <Tag variant="news">
+          <FormattedDate date={pubDate} />
+        </Tag>
+      </div>
       {
         updatedDate && (
           <div class="last-updated-on">
@@ -41,7 +46,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     </div>
     <slot />
 
-    <a class="link back" href="/"><span>terug</span></a>
+    <a href="/#news" class="back-to-news">
+      <Tag variant="news">← Meer nieuws</Tag>
+    </a>
   </article>
 </MainLayout>
 
@@ -51,6 +58,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     max-width: 960px;
     margin: 0 auto;
     position: relative;
+  }
+
+  .date-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-xs);
+  }
+
+  .back-to-news {
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  .back-to-news:hover {
+    transform: translateX(-2px);
   }
 
   .title {
@@ -194,42 +217,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     }
   }
 
-  .link {
+  .back-to-news {
     text-decoration: none;
-    content: "";
+    display: inline-block;
+
+    transition: transform 0.2s ease;
   }
 
-  .back {
-    display: inline-flex;
-    width: min-content;
-    margin-top: var(--space-m);
-    font-size: var(--step--1);
-  }
-
-  .back::before {
-    content: "← ";
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    padding-right: 0.2em;
-  }
-  .back:hover::before {
-    transform: translateX(-5px);
-    padding-right: 0.2em;
-    /* animation: bounce 2s infinite; */
-  }
-
-  @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-      transform: translateX(0);
-    }
-    40% {
-      transform: translateX(-5px);
-    }
-    60% {
-      transform: translateX(-10px);
-    }
+  .back-to-news:hover {
+    transform: translateX(-2px);
   }
 </style>
