@@ -68,9 +68,7 @@ export function destroySmoothScroll(): void {
   }
   
   // Remove GSAP ticker
-  gsap.ticker.remove((time) => {
-    // Cleanup ticker callback
-  });
+  gsap.ticker.remove();
 }
 
 /**

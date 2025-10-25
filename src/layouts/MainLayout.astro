@@ -101,10 +101,14 @@ const {
     </style>
 
     <script>
-      import { initSmoothScroll, destroySmoothScroll, refreshScrollTrigger } from '../utils/smoothScroll';
-      import { setGSAPDefaults, cleanupAnimations } from '../utils/animations';
-      import { gsap } from 'gsap';
-      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      import {
+        initSmoothScroll,
+        destroySmoothScroll,
+        refreshScrollTrigger,
+      } from "../utils/smoothScroll";
+      import { setGSAPDefaults, cleanupAnimations } from "../utils/animations";
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
 
       // Register ScrollTrigger
       gsap.registerPlugin(ScrollTrigger);
@@ -121,13 +125,13 @@ const {
       }
 
       // Handle page navigation cleanup
-      document.addEventListener('astro:before-preparation', () => {
+      document.addEventListener("astro:before-preparation", () => {
         destroySmoothScroll();
         cleanupAnimations();
       });
 
       // Handle page load
-      document.addEventListener('astro:page-load', () => {
+      document.addEventListener("astro:page-load", () => {
         // Re-initialize smooth scroll for new page
         const newLenis = initSmoothScroll();
         if (newLenis) {
@@ -136,8 +140,8 @@ const {
       });
 
       // Handle window resize
-      let resizeTimeout: number;
-      window.addEventListener('resize', () => {
+      let resizeTimeout: ReturnType<typeof setTimeout>;
+      window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
           ScrollTrigger.refresh();
