@@ -16,7 +16,7 @@ const today = new Date();
   </p>
 
   <div class="grid gap-2">
-    <ul class="grid gap-1 text-[length:var(--step--2)] font-bold">
+    <ul class="grid text-[length:var(--step--2)] font-bold">
       <li>
         <a href="https://instagram.com/tuinierhier" class="footer-link">
           instagram.com/tuinierhier
@@ -34,7 +34,7 @@ const today = new Date();
       </li>
     </ul>
     <div
-      class="flex justify-between items-center mt-[var(--space-s-m)] text-[length:var(--step--2)] lg:text-[10px] font-bold text-gray-500 lg:gap-1"
+      class="flex justify-between items-center mt-[var(--space-xs)] text-[length:var(--step--2)] lg:text-[10px] font-bold text-gray-500 lg:gap-1"
     >
       <div>&copy; {today.getFullYear()} {NAME}</div>
       <div class="flex justify-end items-center gap-1">
@@ -79,8 +79,11 @@ const today = new Date();
     text-decoration-thickness: 0.125em;
     color: rgb(16, 17, 18);
     position: relative;
-    padding-left: 1.25em;
+    padding: 0.55em 0.25em 0.5em 1.25em;
     line-height: 1.25;
+    min-height: 24px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
   }
 
   .footer-link:hover {
@@ -92,7 +95,8 @@ const today = new Date();
     content: "→";
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     text-decoration: none;
   }
 </style>
