@@ -1,29 +1,17 @@
 ---
 // Contact section component
 
-// Image assets from Figma
-const contactImage1 =
-  "http://localhost:3845/assets/c599d1713dad16f919996885cc41f6b8a35dd0b0.png";
-const contactImage2 =
-  "http://localhost:3845/assets/1862caece35bf68046955e9a1c1402c1b59187c7.png";
+// Use local image from assets
+const contactImage = "/src/assets/img-contact.jpg";
 ---
 
 <section class="contact-section">
   <div class="contact-content">
-    <p class="contact-subtitle">samenwerken?</p>
+    <p class="contact-subtitle">Samenwerken?</p>
 
     <div class="contact-grid">
       <div class="contact-image-container">
-        <div class="contact-image-wrapper">
-          <div class="contact-image">
-            <img src={contactImage1} alt="Contact visual" class="contact-img" />
-            <img
-              src={contactImage2}
-              alt="Contact visual overlay"
-              class="contact-img-overlay"
-            />
-          </div>
-        </div>
+        <img src={contactImage} alt="Contact visual" class="contact-image" />
       </div>
 
       <div class="contact-info">
@@ -34,17 +22,23 @@ const contactImage2 =
             Heb je een vraag of wil je samenwerken? Ik hoor het graag!
           </p>
 
-          <div class="contact-links">
-            <a href="https://instagram.com/tuinierhier" class="contact-link">
-              → instagram.com/tuinierhier
-            </a>
-            <a href="https://linkedin.com/tuinierhier" class="contact-link">
-              → linkedin.com/tuinierhier
-            </a>
-            <a href="mailto:hoi@tuinierhier.nl" class="contact-link">
-              → hoi@tuinierhier.nl
-            </a>
-          </div>
+          <ul class="contact-links">
+            <li>
+              <a href="https://instagram.com/tuinierhier" class="contact-link">
+                instagram.com/tuinierhier
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/tuinierhier" class="contact-link">
+                linkedin.com/tuinierhier
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hoi@tuinierhier.nl" class="contact-link">
+                hoi@tuinierhier.nl
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -54,138 +48,168 @@ const contactImage2 =
 <style>
   .contact-section {
     background: var(--clr-green);
-    padding: var(--space-2xl, 8rem) var(--space-xl, 4rem);
+    padding: var(--space-m-2xl, clamp(1.5rem, 0.6rem + 4.5vw, 6rem));
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 50; /* Hoger dan About, lager dan footer */
+    z-index: 50;
   }
 
   .contact-content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl, 4rem);
+    gap: var(--space-l);
     width: 100%;
     max-width: 1200px;
   }
 
   .contact-subtitle {
-    font-family: var(--font-heading, "Manrope");
+    font-family: var(--font-heading);
     font-weight: 800;
-    font-size: var(--step-0, 1rem);
-    line-height: 1.25;
-    color: var(--clr-black, #000);
+    font-size: var(--step--1);
+    line-height: var(--lh-tight);
+    color: var(--clr-black);
     margin: 0;
+
+    letter-spacing: var(----ls-normal);
   }
 
   .contact-grid {
     display: grid;
-    gap: var(--space-xl, 4rem);
+    gap: var(--space-l);
     grid-template-columns: 1fr;
   }
 
   .contact-image-container {
-    position: relative;
-    width: 100%;
-    max-width: 768px;
-  }
-
-  .contact-image-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    transform: rotate(356.453deg);
+    order: 1;
   }
 
   .contact-image {
-    position: relative;
     width: 100%;
-    height: 100%;
-    border-radius: 32px;
-    overflow: hidden;
-  }
-
-  .contact-img,
-  .contact-img-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
     object-fit: cover;
-    object-position: center;
-    border-radius: 32px;
+    aspect-ratio: 4/3;
   }
 
   .contact-info {
+    order: 2;
     display: flex;
     flex-direction: column;
-    gap: var(--space-m, 1rem);
-    max-width: 320px;
+    gap: var(--space-m);
+    max-width: 400px;
   }
 
   .contact-title {
-    font-family: var(--font-heading, "Manrope");
+    font-family: var(--font-heading);
     font-weight: 800;
-    font-size: var(--step-2, 2rem);
-    line-height: 1;
-    color: var(--clr-black, #000);
+    font-size: var(--step-3);
+    line-height: var(--lh-tight);
+    color: var(--clr-black);
     margin: 0;
   }
 
   .contact-details {
     display: flex;
     flex-direction: column;
-    gap: var(--space-m, 1rem);
+    gap: var(--space-s);
   }
 
   .contact-description {
-    font-family: var(--font-heading, "Manrope");
-    font-weight: 800;
-    font-size: var(--step--2, 0.75rem);
-    line-height: 1.33;
-    color: var(--clr-black, #000);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: var(--step-0);
+    line-height: var(--lh-loose-2);
+    color: var(--clr-black);
     margin: 0;
   }
 
   .contact-links {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-2xs);
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   .contact-link {
-    font-family: var(--font-heading, "Manrope");
-    font-weight: 800;
-    font-size: var(--step--2, 0.75rem);
+    display: block;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.3);
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: 0.125em;
+    color: var(--clr-black);
+    position: relative;
+    padding-left: 1.25em;
     line-height: 1.25;
-    color: var(--clr-black, #000);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--step--1);
+    transition: all var(--duration-normal) var(--ease-out);
+  }
+
+  .contact-link::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
     text-decoration: none;
-    transition: opacity 0.2s ease;
   }
 
   .contact-link:hover {
-    opacity: 0.7;
+    color: var(--clr-navy);
+    text-decoration-color: var(--clr-navy);
   }
 
   /* Desktop layout */
   @media (min-width: 768px) {
+    .contact-content {
+      gap: var(--space-xl);
+    }
+
     .contact-grid {
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      align-items: center;
     }
 
     .contact-image-container {
+      order: 1;
+    }
+
+    .contact-info {
+      order: 2;
       max-width: none;
+    }
+
+    .contact-title {
+      font-size: var(--step-4);
+    }
+
+    .contact-description {
+      font-size: var(--step-1);
+    }
+
+    .contact-link {
+      font-size: var(--step-0);
     }
   }
 
-  /* Large screens - footer always on top */
+  /* Large screens */
   @media (min-width: 1024px) {
     .contact-section {
-      z-index: 50; /* Consistent with mobile, footer has z-index: 100 */
+      z-index: 50;
+    }
+
+    .contact-grid {
+      gap: var(--space-2xl);
+    }
+
+    .contact-title {
+      font-size: var(--step-5);
     }
   }
 </style>

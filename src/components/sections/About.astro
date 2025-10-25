@@ -12,7 +12,7 @@ const aboutContent = {
 };
 ---
 
-<section class="about-section z-20">
+<section class="about-section z-20" id="about-section">
   <div class="about-content">
     <div class="about-intro">
       <p class="intro-text">
@@ -100,3 +100,50 @@ const aboutContent = {
     }
   }
 </style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReducedMotion && window.innerWidth >= 1024) {
+    // Darken effect for sticky section
+    const aboutSection = document.getElementById("about-section");
+    if (aboutSection) {
+      // Create overlay element
+      const overlay = document.createElement("div");
+      overlay.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        border-radius: inherit;
+      `;
+      aboutSection.appendChild(overlay);
+
+      // Animate overlay opacity on scroll
+      gsap.to(overlay, {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: aboutSection,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+        },
+      });
+    }
+  }
+</script>

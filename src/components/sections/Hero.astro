@@ -3,7 +3,7 @@ import { NAME, NAME_REAL } from "../../consts";
 import Tag from "../common/Tag.astro";
 ---
 
-<header class="min-h-[70vh] lg:min-h-[80vh] sticky top-0 z-20">
+<header class="min-h-[70vh] lg:min-h-[80vh] sticky top-0 z-20 overflow-hidden">
   <div
     class="absolute z-20 grid w-full h-full justify-center overflow-hidden place-items-center text-center bg-black/50 text-white"
   >
@@ -14,22 +14,25 @@ import Tag from "../common/Tag.astro";
       <h1
         class="font-heading text-[length:var(--step-10)] leading-none text-clr-yellow"
         id="hero-title"
+        data-animate-text
       >
         {NAME}
       </h1>
       <ul
         class="flex flex-wrap gap-[var(--space-2xs)] items-center justify-center"
+        data-animate-tags
       >
-        <li><Tag variant="hero">Tuinfluencer</Tag></li>
-        <li><Tag variant="hero">Plantlover</Tag></li>
-        <li><Tag variant="hero">Kweekbeest</Tag></li>
-        <li><Tag variant="hero">Tuintijger</Tag></li>
-        <li><Tag variant="hero">Gardenista</Tag></li>
+        <li data-tag><Tag variant="hero">Tuinfluencer</Tag></li>
+        <li data-tag><Tag variant="hero">Plantlover</Tag></li>
+        <li data-tag><Tag variant="hero">Kweekbeest</Tag></li>
+        <li data-tag><Tag variant="hero">Tuintijger</Tag></li>
+        <li data-tag><Tag variant="hero">Gardenista</Tag></li>
       </ul>
     </div>
   </div>
   <video
     class="absolute h-full w-full object-cover"
+    id="hero-video"
     autoplay="1"
     loop="1"
     style="background-image:url(./assets/bloemenhommel-poster.jpg)"
@@ -45,16 +48,103 @@ import Tag from "../common/Tag.astro";
 </header>
 
 <script>
-  const heroTitle = document.getElementById("hero-title") as HTMLElement;
+  import { createTextSplit } from "../../utils/animations";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  if (heroTitle) {
-    window.addEventListener("scroll", () => {
-      const scrolled = window.scrollY;
-      const scale = 1 + scrolled * 0.025; // Langzaam groter worden
-      const blur = scrolled * 0.15; // Langzaam meer blur
+  // Register ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
 
-      heroTitle.style.transform = `scale(${scale})`;
-      heroTitle.style.filter = `blur(${blur}px)`;
-    });
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (!prefersReducedMotion) {
+    // Text split animation for hero title
+    const heroTitle = document.getElementById("hero-title") as HTMLElement;
+    if (heroTitle) {
+      // Create text split animation - letter by letter
+      createTextSplit(heroTitle, {
+        stagger: 0.08,
+        duration: 0.1,
+        delay: 0.15,
+        splitBy: "letters",
+      });
+
+      // Hero title zoom and blur effect on scroll
+      gsap.fromTo(
+        heroTitle,
+        {
+          scale: 1,
+          filter: "blur(0px)",
+        },
+        {
+          scale: 3,
+          filter: "blur(32px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroTitle,
+            start: "bottom center",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    // Tags stagger animation
+    const tags = document.querySelectorAll("[data-tag]");
+    if (tags.length > 0) {
+      gsap.set(tags, {
+        opacity: 0,
+        y: 30,
+      });
+
+      gsap.to(tags, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        delay: 1.2,
+        ease: "back.out(1.7)",
+      });
+    }
+
+    // Video zoom effect on scroll
+    const heroVideo = document.getElementById("hero-video") as HTMLVideoElement;
+    if (heroVideo) {
+      gsap.fromTo(
+        heroVideo,
+        {
+          scale: 1,
+        },
+        {
+          scale: 2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: heroVideo,
+            start: "bottom 90%",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+    }
+
+    // Hero darken effect on scroll
+    const heroOverlay = document.querySelector(".absolute.z-20") as HTMLElement;
+    if (heroOverlay) {
+      gsap.to(heroOverlay, {
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroVideo,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }
   }
 </script>

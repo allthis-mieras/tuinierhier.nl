@@ -99,5 +99,50 @@ const {
         }
       }
     </style>
+
+    <script>
+      import { initSmoothScroll, destroySmoothScroll, refreshScrollTrigger } from '../utils/smoothScroll';
+      import { setGSAPDefaults, cleanupAnimations } from '../utils/animations';
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      // Register ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Set GSAP defaults for performance
+      setGSAPDefaults();
+
+      // Initialize smooth scroll
+      const lenis = initSmoothScroll();
+
+      // Refresh ScrollTrigger after Lenis initialization
+      if (lenis) {
+        refreshScrollTrigger();
+      }
+
+      // Handle page navigation cleanup
+      document.addEventListener('astro:before-preparation', () => {
+        destroySmoothScroll();
+        cleanupAnimations();
+      });
+
+      // Handle page load
+      document.addEventListener('astro:page-load', () => {
+        // Re-initialize smooth scroll for new page
+        const newLenis = initSmoothScroll();
+        if (newLenis) {
+          refreshScrollTrigger();
+        }
+      });
+
+      // Handle window resize
+      let resizeTimeout: number;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      });
+    </script>
   </body>
 </html>
