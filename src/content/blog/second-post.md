@@ -4,8 +4,8 @@ description: "This is a sample blog post description."
 pubDate: "2022-12-21"
 updatedDate: "2023-01-10"
 heroImage:
-  src: "/blog-placeholder-2.jpg"
-  alt: "Content Image Alt Text"
+  src: "../../assets/blog/blog-placeholder-2.jpg"
+  alt: "Sample Blog Post"
 author: "John Doe"
 authorContact: "john.doe@example.com"
 tags:

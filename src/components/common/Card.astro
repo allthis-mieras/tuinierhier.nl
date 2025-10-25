@@ -1,11 +1,12 @@
 ---
 import Tag from "./Tag.astro";
+import { Image } from "astro:assets";
 
 export interface Props {
   href: string;
   title: string;
   description: string;
-  imageSrc: string;
+  imageSrc: any; // Astro Image object
   imageAlt: string;
 }
 
@@ -14,10 +15,14 @@ const { href, title, description, imageSrc, imageAlt } = Astro.props;
 
 <article class="card relative grid gap-[var(--space-3xs)] justify-items-start">
   <figure class="w-full">
-    <img
+    <Image
       src={imageSrc}
       alt={imageAlt}
       loading="lazy"
+      format="webp"
+      width={400}
+      height={300}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       class="block w-full h-auto rounded-xl overflow-hidden mb-[var(--space-xs)]"
     />
   </figure>
