@@ -13,19 +13,17 @@ const aboutContent = {
 ---
 
 <section
-  class="bg-clr-blue p-[var(--space-m-xl)] relative z-30 lg:sticky lg:top-0"
+  class="bg-[var(--clr-blue)] relative z-30 lg:sticky lg:top-0 p-[var(--space-m-xl)] py-[var(--space-m-2xl)]"
   id="about-section"
 >
-  <div class="grid gap-[var(--space-s-m)] lg:grid-cols-[2fr_1fr_1fr]">
-    <div class="about-intro">
+  <div class="grid gap-[var(--space-s-m)] lg:grid-cols-2">
+    <div class="lg:col-span-1">
       <p class="text-[length:var(--step-1)] font-bold leading-[133%] m-0">
         {aboutContent.intro}
       </p>
     </div>
 
-    <div
-      class="about-details lg:col-span-2 flex flex-col gap-[var(--space-s-m)]"
-    >
+    <div class="lg:col-span-1 grid gap-[var(--step--2)]">
       {
         aboutContent.details.map((detail, index) => (
           <p
@@ -40,11 +38,6 @@ const aboutContent = {
     </div>
   </div>
 </section>
-
-<style>
-  /* About section uses Tailwind + Utopia for layout, only custom styles for animations */
-</style>
-
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";

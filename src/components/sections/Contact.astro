@@ -7,17 +7,11 @@ import contactImageSrc from "../../assets/img-contact.jpg";
 ---
 
 <section
-  class="bg-clr-green p-[var(--space-m-2xl)] lg:min-h-screen flex items-center justify-center relative z-50"
+  class="bg-[var(--clr-green)] p-[var(--space-m-2xl)] min-h-screen flex items-center justify-center relative z-50"
 >
-  <div class="flex flex-col gap-[var(--space-xs)] w-full max-w-6xl">
-    <h3
-      class="font-heading font-extrabold text-[length:var(--step--1)] leading-tight text-clr-black m-0 tracking-normal"
-    >
-      Samenwerken?
-    </h3>
-
+  <div class="flex flex-col gap-[var(--space-l)] w-full max-w-6xl">
     <div
-      class="grid gap-[var(--space-l)] grid-cols-1 md:grid-cols-2 md:gap-[var(--space-xl)] md:items-center"
+      class="grid gap-[var(--space-xs-s)] md:grid-cols-2 md:gap-[var(--space-l)]"
     >
       <div class="order-1">
         <Image
@@ -26,7 +20,7 @@ import contactImageSrc from "../../assets/img-contact.jpg";
           class="w-full h-auto rounded-lg object-cover aspect-[4/3]"
           width={800}
           height={600}
-          format="avif"
+          format="webp"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
           loading="lazy"
           quality={85}
@@ -34,32 +28,41 @@ import contactImageSrc from "../../assets/img-contact.jpg";
       </div>
 
       <div
-        class="order-2 flex flex-col gap-[var(--space-2xs)] max-w-sm md:max-w-none"
+        class="order-2 flex flex-col gap-[var(--space-xs)] max-w-md md:max-w-none"
       >
         <h2
-          class="font-heading font-extrabold text-[length:var(--step-3)] md:text-[length:var(--step-4)] lg:text-[length:var(--step-5)] leading-tight text-clr-black m-0"
+          class="font-heading font-extrabold text-[length:var(--step-3)] leading-tight text-black m-0 md:text-[length:var(--step-4)] lg:text-[length:var(--step-5)]"
         >
           Contact
         </h2>
 
-        <div class="flex flex-col gap-[var(--space-xs)]">
+        <div class="flex flex-col gap-[var(--space-s)]">
           <p class="text-[length:var(--step--1)] font-semibold leading-normal">
             Heb je een vraag of wil je samenwerken? Ik hoor het graag!
           </p>
 
           <ul class="flex flex-col gap-[var(--space-2xs)] list-none p-0 m-0">
             <li>
-              <a href="https://instagram.com/tuinierhier" class="contact-link">
+              <a
+                href="https://instagram.com/tuinierhier"
+                class="block underline underline-offset-1 decoration-black/30 decoration-2 text-black relative pl-[1.25em] leading-tight font-body font-semibold text-[length:var(--step--1)] transition-all duration-normal ease-out hover:text-navy hover:decoration-navy md:text-[length:var(--step-0)] before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+              >
                 instagram.com/tuinierhier
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com/tuinierhier" class="contact-link">
+              <a
+                href="https://linkedin.com/tuinierhier"
+                class="block underline underline-offset-1 decoration-black/30 decoration-2 text-black relative pl-[1.25em] leading-tight font-body font-semibold text-[length:var(--step--1)] transition-all duration-normal ease-out hover:text-navy hover:decoration-navy md:text-[length:var(--step-0)] before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+              >
                 linkedin.com/tuinierhier
               </a>
             </li>
             <li>
-              <a href="mailto:eefje@tuinierhier.nl" class="contact-link">
+              <a
+                href="mailto:eefje@tuinierhier.nl"
+                class="block underline underline-offset-1 decoration-black/30 decoration-2 text-black relative pl-[1.25em] leading-tight font-body font-semibold text-[length:var(--step--1)] transition-all duration-normal ease-out hover:text-navy hover:decoration-navy md:text-[length:var(--step-0)] before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+              >
                 eefje@tuinierhier.nl
               </a>
             </li>
@@ -69,41 +72,3 @@ import contactImageSrc from "../../assets/img-contact.jpg";
     </div>
   </div>
 </section>
-
-<style>
-  .contact-link {
-    display: block;
-    text-decoration: underline;
-    text-decoration-color: rgba(0, 0, 0, 0.3);
-    text-underline-offset: 0.25em;
-    text-decoration-thickness: 0.125em;
-    color: var(--clr-black);
-    position: relative;
-    padding-left: 1.25em;
-    line-height: 1.25;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: var(--step--1);
-    transition: all var(--duration-normal) var(--ease-out);
-  }
-
-  .contact-link::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-decoration: none;
-  }
-
-  .contact-link:hover {
-    color: var(--clr-black);
-    text-decoration-color: var(--clr-black);
-  }
-
-  /* Responsive font sizes for contact links */
-  @media (min-width: 768px) {
-    .contact-link {
-      font-size: var(--step-0);
-    }
-  }
-</style>
