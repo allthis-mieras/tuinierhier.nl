@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 let lenis: Lenis | null = null;
+let tickerCallback: ((time: number) => void) | null = null;
 
 /**
  * Check if user prefers reduced motion
@@ -32,22 +33,16 @@ export function initSmoothScroll(): Lenis | null {
     lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
     });
 
     // Connect Lenis with GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
     // GSAP ticker for smooth animations
-    gsap.ticker.add((time) => {
+    tickerCallback = (time: number) => {
       lenis?.raf(time * 1000);
-    });
+    };
+    gsap.ticker.add(tickerCallback);
 
     gsap.ticker.lagSmoothing(0);
 
@@ -67,8 +62,11 @@ export function destroySmoothScroll(): void {
     lenis = null;
   }
   
-  // Remove GSAP ticker
-  gsap.ticker.remove();
+  // Remove GSAP ticker callback if it exists
+  if (tickerCallback) {
+    gsap.ticker.remove(tickerCallback);
+    tickerCallback = null;
+  }
 }
 
 /**
