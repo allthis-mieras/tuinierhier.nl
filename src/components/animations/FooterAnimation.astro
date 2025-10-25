@@ -1,0 +1,14 @@
+---
+// FooterAnimation component - handles footer flower rotation
+---
+
+<script>
+  const elem = document.querySelector(".bloem") as HTMLElement;
+
+  if (elem) {
+    window.addEventListener("scroll", function () {
+      const value = window.scrollY * 1;
+      elem.style.transform = `translateX(50%) translateY(-50%) rotate(${value}deg)`;
+    });
+  }
+</script>

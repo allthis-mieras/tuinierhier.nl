@@ -1,5 +1,6 @@
 ---
 import { NAME } from "../../consts";
+import FooterAnimation from "../animations/FooterAnimation.astro";
 const today = new Date();
 ---
 
@@ -50,9 +51,13 @@ const today = new Date();
   <div
     class="bloem absolute top-0 left-1/2 w-12 -translate-x-1/2 -translate-y-1/2 lg:top-1/2 lg:left-auto lg:right-0 lg:w-16 lg:translate-x-1/2 lg:-translate-y-1/2 lg:z-[999]"
   >
-    <img src="/assets/tuinierhier-bloem.svg" />
+    <img
+      src="/assets/tuinierhier-bloem.svg"
+      alt="Tuinierhier bloem decoratie"
+    />
   </div>
 </footer>
+<FooterAnimation />
 
 <style>
   /* Footer Layout */
@@ -91,14 +96,3 @@ const today = new Date();
     text-decoration: none;
   }
 </style>
-
-<script>
-  const elem = document.querySelector(".bloem") as HTMLElement;
-
-  if (elem) {
-    window.addEventListener("scroll", function () {
-      const value = window.scrollY * 1;
-      elem.style.transform = `translateX(50%) translateY(-50%) rotate(${value}deg)`;
-    });
-  }
-</script>
