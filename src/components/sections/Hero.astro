@@ -49,8 +49,10 @@ import HeroAnimation from "../animations/HeroAnimation.astro";
     data-object-fit="cover"
     width="100%"
     poster="./assets/bloemenhommel-poster.jpg"
+    preload="metadata"
+    {...{ fetchpriority: "high" }}
     ><source src="./assets/bloemenhommel-transcode.mp4" /><source
-      src='./assets/bloemenhommel-transcode.webm"'
+      src="./assets/bloemenhommel-transcode.webm"
     /></video
   >
 </header>
