@@ -4,8 +4,8 @@ description: "Here is a sample of some basic Markdown syntax that can be used wh
 pubDate: "2022-12-21"
 updatedDate: "2023-01-10"
 heroImage:
-  src: "/blog-placeholder-2.jpg"
-  alt: "Content Image Alt Text"
+  src: "../../assets/blog/blog-placeholder-2.jpg"
+  alt: "Markdown Style Guide"
 author: "John Doe"
 authorContact: "john.doe@example.com"
 tags:

@@ -3,8 +3,8 @@ title: "Glansrol in Eigen Huis & Tuin: Lekker Leven"
 description: "Een stadstuin met potentie."
 pubDate: "Aug 17 2022"
 heroImage:
-  src: "/blog-eigenhuis.jpg"
-  alt: "DyeYard make-over"
+  src: "../../assets/blog/blog-eigenhuis.jpg"
+  alt: "Glansrol in Eigen Huis & Tuin: Lekker Leven"
 ---
 
 ## Zomaar met mijn wormenbak op nationale televisie

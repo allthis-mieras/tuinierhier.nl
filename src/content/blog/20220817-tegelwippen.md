@@ -3,7 +3,7 @@ title: "Reels voor het NK Tegelwippen"
 description: "Met een romcom, muzikale tegels en een pratende boom"
 pubDate: "Aug 17 2022"
 heroImage:
-  src: "/blog-tegelwippen.jpg"
+  src: "../../assets/blog/blog-tegelwippen.jpg"
   alt: "Met een romcom, muzikale tegels en een pratende boom"
 ---
 
