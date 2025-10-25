@@ -221,7 +221,7 @@ export function createParallax(
     y: yValue,
     ease: 'none',
     scrollTrigger: {
-      trigger: scrollTrigger || elements,
+      trigger: scrollTrigger || (elements as any),
       start: 'top bottom',
       end: 'bottom top',
       scrub: true,
