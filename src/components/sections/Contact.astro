@@ -5,37 +5,58 @@
 const contactImage = "/src/assets/img-contact.jpg";
 ---
 
-<section class="contact-section">
-  <div class="contact-content">
-    <p class="contact-subtitle">Samenwerken?</p>
-
-    <div class="contact-grid">
-      <div class="contact-image-container">
-        <img src={contactImage} alt="Contact visual" class="contact-image" />
+<section
+  class="bg-[var(--clr-green)] p-[var(--space-m-2xl)] min-h-screen flex items-center justify-center relative z-50"
+>
+  <div class="flex flex-col gap-[var(--space-l)] w-full max-w-6xl">
+    <div
+      class="grid gap-[var(--space-xs-s)] md:grid-cols-2 md:gap-[var(--space-l)]"
+    >
+      <div class="order-1">
+        <img
+          src={contactImage}
+          alt="Contact visual"
+          class="w-full h-auto rounded-lg object-cover aspect-[4/3]"
+        />
       </div>
 
-      <div class="contact-info">
-        <h2 class="contact-title">Contact</h2>
+      <div
+        class="order-2 flex flex-col gap-[var(--space-xs)] max-w-md md:max-w-none"
+      >
+        <h2
+          class="font-heading font-extrabold text-[length:var(--step-3)] leading-tight text-black m-0 md:text-[length:var(--step-4)] lg:text-[length:var(--step-5)]"
+        >
+          Contact
+        </h2>
 
-        <div class="contact-details">
-          <p class="contact-description">
+        <div class="flex flex-col gap-[var(--space-s)]">
+          <p class="text-[length:var(--step--1)] font-semibold leading-normal">
             Heb je een vraag of wil je samenwerken? Ik hoor het graag!
           </p>
 
-          <ul class="contact-links">
+          <ul class="flex flex-col gap-[var(--space-2xs)] list-none p-0 m-0">
             <li>
-              <a href="https://instagram.com/tuinierhier" class="contact-link">
+              <a
+                href="https://instagram.com/tuinierhier"
+                class="block underline underline-offset-1 decoration-black/30 decoration-2 text-black relative pl-[1.25em] leading-tight font-body font-semibold text-[length:var(--step--1)] transition-all duration-normal ease-out hover:text-navy hover:decoration-navy md:text-[length:var(--step-0)] before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+              >
                 instagram.com/tuinierhier
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com/tuinierhier" class="contact-link">
+              <a
+                href="https://linkedin.com/tuinierhier"
+                class="block underline underline-offset-1 decoration-black/30 decoration-2 text-black relative pl-[1.25em] leading-tight font-body font-semibold text-[length:var(--step--1)] transition-all duration-normal ease-out hover:text-navy hover:decoration-navy md:text-[length:var(--step-0)] before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+              >
                 linkedin.com/tuinierhier
               </a>
             </li>
             <li>
-              <a href="mailto:hoi@tuinierhier.nl" class="contact-link">
-                hoi@tuinierhier.nl
+              <a
+                href="mailto:eefje@tuinierhier.nl"
+                class="block underline underline-offset-1 decoration-black/30 decoration-2 text-black relative pl-[1.25em] leading-tight font-body font-semibold text-[length:var(--step--1)] transition-all duration-normal ease-out hover:text-navy hover:decoration-navy md:text-[length:var(--step-0)] before:content-['→'] before:absolute before:left-0 before:top-0 before:no-underline"
+              >
+                eefje@tuinierhier.nl
               </a>
             </li>
           </ul>
@@ -44,172 +65,3 @@ const contactImage = "/src/assets/img-contact.jpg";
     </div>
   </div>
 </section>
-
-<style>
-  .contact-section {
-    background: var(--clr-green);
-    padding: var(--space-m-2xl, clamp(1.5rem, 0.6rem + 4.5vw, 6rem));
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 50;
-  }
-
-  .contact-content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-l);
-    width: 100%;
-    max-width: 1200px;
-  }
-
-  .contact-subtitle {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: var(--step--1);
-    line-height: var(--lh-tight);
-    color: var(--clr-black);
-    margin: 0;
-
-    letter-spacing: var(----ls-normal);
-  }
-
-  .contact-grid {
-    display: grid;
-    gap: var(--space-l);
-    grid-template-columns: 1fr;
-  }
-
-  .contact-image-container {
-    order: 1;
-  }
-
-  .contact-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-lg);
-    object-fit: cover;
-    aspect-ratio: 4/3;
-  }
-
-  .contact-info {
-    order: 2;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-    max-width: 400px;
-  }
-
-  .contact-title {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: var(--step-3);
-    line-height: var(--lh-tight);
-    color: var(--clr-black);
-    margin: 0;
-  }
-
-  .contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-  }
-
-  .contact-description {
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: var(--step-0);
-    line-height: var(--lh-loose-2);
-    color: var(--clr-black);
-    margin: 0;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xs);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .contact-link {
-    display: block;
-    text-decoration: underline;
-    text-decoration-color: rgba(0, 0, 0, 0.3);
-    text-underline-offset: 0.25em;
-    text-decoration-thickness: 0.125em;
-    color: var(--clr-black);
-    position: relative;
-    padding-left: 1.25em;
-    line-height: 1.25;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: var(--step--1);
-    transition: all var(--duration-normal) var(--ease-out);
-  }
-
-  .contact-link::before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    top: 0;
-    text-decoration: none;
-  }
-
-  .contact-link:hover {
-    color: var(--clr-navy);
-    text-decoration-color: var(--clr-navy);
-  }
-
-  /* Desktop layout */
-  @media (min-width: 768px) {
-    .contact-content {
-      gap: var(--space-xl);
-    }
-
-    .contact-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-xl);
-      align-items: center;
-    }
-
-    .contact-image-container {
-      order: 1;
-    }
-
-    .contact-info {
-      order: 2;
-      max-width: none;
-    }
-
-    .contact-title {
-      font-size: var(--step-4);
-    }
-
-    .contact-description {
-      font-size: var(--step-1);
-    }
-
-    .contact-link {
-      font-size: var(--step-0);
-    }
-  }
-
-  /* Large screens */
-  @media (min-width: 1024px) {
-    .contact-section {
-      z-index: 50;
-    }
-
-    .contact-grid {
-      gap: var(--space-2xl);
-    }
-
-    .contact-title {
-      font-size: var(--step-5);
-    }
-  }
-</style>

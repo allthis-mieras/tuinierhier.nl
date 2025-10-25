@@ -12,20 +12,23 @@ const aboutContent = {
 };
 ---
 
-<section class="about-section z-20" id="about-section">
-  <div class="about-content">
-    <div class="about-intro">
-      <p class="intro-text">
+<section
+  class="bg-[var(--clr-blue)] relative z-30 lg:sticky lg:top-0 p-[var(--space-m-xl)] py-[var(--space-m-2xl)]"
+  id="about-section"
+>
+  <div class="grid gap-[var(--space-s-m)] lg:grid-cols-2">
+    <div class="lg:col-span-1">
+      <p class="text-[length:var(--step-1)] font-bold leading-[133%] m-0">
         {aboutContent.intro}
       </p>
     </div>
 
-    <div class="about-details">
+    <div class="lg:col-span-1 grid gap-[var(--step--2)]">
       {
         aboutContent.details.map((detail, index) => (
           <p
-            class={`detail-text ${
-              index === aboutContent.details.length - 1 ? "call-to-action" : ""
+            class={`text-[length:var(--step--2)] font-bold leading-[150%] m-0 ${
+              index === aboutContent.details.length - 1 ? "font-medium" : ""
             }`}
           >
             {detail}
@@ -35,71 +38,6 @@ const aboutContent = {
     </div>
   </div>
 </section>
-
-<style>
-  .about-section {
-    background: var(--clr-blue);
-    position: relative;
-    z-index: 30; /* Hoger dan Hero, lager dan Services */
-    padding: var(--space-m-xl);
-  }
-
-  /* Desktop sticky gedrag */
-  @media (min-width: 1024px) {
-    .about-section {
-      position: sticky;
-      top: 0;
-    }
-  }
-
-  .about-content {
-    display: grid;
-    gap: var(--space-s-m);
-  }
-
-  .intro-text {
-    font-size: var(--step-1);
-    font-weight: bold;
-    line-height: 133%;
-    margin: 0;
-  }
-
-  .about-details {
-    display: grid;
-    gap: var(--space-s-m);
-  }
-
-  .detail-text {
-    font-size: var(--step--2);
-    font-weight: bold;
-    line-height: 150%;
-    margin: 0;
-  }
-
-  .call-to-action {
-    font-weight: 500;
-  }
-
-  /* Desktop layout */
-  @media (min-width: 1024px) {
-    .about-section {
-      position: sticky;
-      top: 0;
-    }
-
-    .about-content {
-      grid-template-columns: 2fr 1fr 1fr;
-    }
-
-    .about-intro {
-      grid-column: 1;
-    }
-
-    .about-details {
-      grid-column: 2 / -1;
-    }
-  }
-</style>
 
 <script>
   import { gsap } from "gsap";
