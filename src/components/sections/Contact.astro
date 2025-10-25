@@ -1,8 +1,9 @@
 ---
-// Contact section component
+import { Image } from "astro:assets";
 
+// Contact section component
 // Use local image from assets
-const contactImage = "/src/assets/img-contact.jpg";
+import contactImageSrc from "../../assets/img-contact.jpg";
 ---
 
 <section
@@ -13,10 +14,16 @@ const contactImage = "/src/assets/img-contact.jpg";
       class="grid gap-[var(--space-xs-s)] md:grid-cols-2 md:gap-[var(--space-l)]"
     >
       <div class="order-1">
-        <img
-          src={contactImage}
+        <Image
+          src={contactImageSrc}
           alt="Contact visual"
           class="w-full h-auto rounded-lg object-cover aspect-[4/3]"
+          width={800}
+          height={600}
+          format="webp"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+          loading="lazy"
+          quality={85}
         />
       </div>
 
