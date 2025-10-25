@@ -8,19 +8,24 @@ import HeroAnimation from "../animations/HeroAnimation.astro";
   class="min-h-[70vh] lg:min-h-[80vh] relative lg:sticky top-0 z-20 overflow-hidden"
 >
   <div
-    class="absolute z-20 grid w-full h-full justify-center overflow-hidden place-items-center text-center bg-black/50 text-white"
+    class="absolute z-20 grid w-full h-full justify-center overflow-hidden place-items-center text-center bg-black/10 text-white"
   >
     <div class="space-y-4">
-      <h1
-        class="font-heading text-[length:var(--step-7)] md:text-[length:var(--step-8)] lg:text-[length:var(--step-10)] leading-none text-clr-yellow whitespace-nowrap"
-        id="hero-title"
-        data-animate-text
-      >
-        {NAME}
-      </h1>
-      <p class="font-heading-alt text-[length:var(--step-2)] text-white">
-        {NAME_REAL}
-      </p>
+      <!-- Mobile: Eefje Peddemors first, Desktop: Tuinierhier first -->
+      <div class="flex flex-col md:block">
+        <h1
+          class="font-heading-alt text-[length:var(--step-2)] text-white order-1"
+        >
+          {NAME_REAL}
+        </h1>
+        <h2
+          class="font-heading text-[length:var(--step-7)] md:text-[length:var(--step-8)] lg:text-[length:var(--step-10)] leading-none text-clr-yellow whitespace-nowrap order-2"
+          id="hero-title"
+          data-animate-text
+        >
+          {NAME}
+        </h2>
+      </div>
       <ul
         class="flex flex-wrap gap-[var(--space-2xs)] items-center justify-center"
         data-animate-tags
