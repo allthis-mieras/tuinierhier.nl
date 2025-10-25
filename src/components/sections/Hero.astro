@@ -12,7 +12,7 @@ import Tag from "../common/Tag.astro";
         {NAME_REAL}
       </h2>
       <h1
-        class="font-heading text-[length:var(--step-10)] leading-none text-clr-yellow"
+        class="font-heading text-[length:var(--step-6)] md:text-[length:var(--step-8)] lg:text-[length:var(--step-10)] leading-none text-clr-yellow"
         id="hero-title"
         data-animate-text
       >
@@ -73,6 +73,8 @@ import Tag from "../common/Tag.astro";
       });
 
       // Hero title zoom and blur effect on scroll
+      const isMobile = window.innerWidth < 768;
+
       gsap.fromTo(
         heroTitle,
         {
@@ -85,7 +87,7 @@ import Tag from "../common/Tag.astro";
           ease: "none",
           scrollTrigger: {
             trigger: heroTitle,
-            start: "bottom center",
+            start: isMobile ? "bottom 10%" : "bottom 30%",
             end: "bottom top",
             scrub: 1,
           },
@@ -114,6 +116,8 @@ import Tag from "../common/Tag.astro";
     // Video zoom effect on scroll
     const heroVideo = document.getElementById("hero-video") as HTMLVideoElement;
     if (heroVideo) {
+      const isMobile = window.innerWidth < 768;
+
       gsap.fromTo(
         heroVideo,
         {
@@ -124,7 +128,7 @@ import Tag from "../common/Tag.astro";
           ease: "power2.out",
           scrollTrigger: {
             trigger: heroVideo,
-            start: "bottom 90%",
+            start: isMobile ? "bottom 50%" : "bottom 70%",
             end: "bottom top",
             scrub: 1,
           },

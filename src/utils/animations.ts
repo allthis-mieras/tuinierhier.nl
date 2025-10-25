@@ -258,7 +258,7 @@ export function createTextSplit(
         if (char === ' ') {
           return '<span style="display: inline-block; width: 0.25em;">&nbsp;</span>';
         }
-        return `<span style="display: inline-block;">${char}</span>`;
+        return `<span style="display: inline-block; white-space: nowrap;">${char}</span>`;
       })
       .join('');
 
