@@ -42,7 +42,7 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
   .tag {
     display: inline-block;
     font-family: var(--font-extra);
-    font-size: var(--step--1);
+    font-size: var(--step--2);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.1ch;
@@ -53,6 +53,13 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
     text-box-trim: both;
     text-edge: cap alphabetic;
     text-decoration: none;
+  }
+
+  /* Responsive font sizes for tags */
+  @media (min-width: 768px) {
+    .tag {
+      font-size: var(--step--1);
+    }
   }
 
   .tag--default {
