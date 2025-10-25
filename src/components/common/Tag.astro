@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  variant?: "default" | "hero";
+  variant?: "default" | "hero" | "news";
   class?: string;
   href?: string;
 }
@@ -16,6 +16,7 @@ const baseClasses = "tag";
 const variantClasses = {
   default: "tag--default",
   hero: "tag--hero",
+  news: "tag--news",
 };
 const classes = [baseClasses, variantClasses[variant], className]
   .filter(Boolean)
@@ -62,6 +63,12 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
   .tag--hero {
     background: var(--clr-blue);
     color: var(--clr-navy);
+    border: none;
+  }
+
+  .tag--news {
+    background: var(--clr-white);
+    color: var(--clr-black);
     border: none;
   }
 

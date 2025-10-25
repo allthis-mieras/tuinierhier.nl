@@ -23,10 +23,7 @@ const { href, title, description, imageSrc, imageAlt } = Astro.props;
   </figure>
   {
     Astro.slots.has("meta") && (
-      <Tag
-        variant="default"
-        class="mb-0 text-[length:var(--step--2)] border-none"
-      >
+      <Tag variant="news" class="mb-0 text-[length:var(--step--2)]">
         <slot name="meta" />
       </Tag>
     )
